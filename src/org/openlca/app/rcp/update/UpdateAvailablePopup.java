@@ -63,7 +63,7 @@ public class UpdateAvailablePopup extends InformationPopup {
 		@Override
 		public void linkActivated(HyperlinkEvent evt) {
 			updateCallback.schedule();
-			this.popupImpl.close();
+//			this.popupImpl.close();
 		}
 	}
 }

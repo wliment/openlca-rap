@@ -12,6 +12,7 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.graphics.Drawable;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -128,7 +129,7 @@ public class ChartCanvas extends Canvas {
 			cachedImage = new Image(Display.getCurrent(), size.width,
 					size.height);
 
-			gc = new GC(cachedImage);
+			gc = new GC((Drawable) cachedImage);
 			render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, gc);
 
 			Generator gr = Generator.instance();

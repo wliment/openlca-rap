@@ -54,7 +54,7 @@ public class ExportWizardPage extends WizardPage implements ICheckStateListener 
 		UI.gridData(composite, true, true);
 		viewer = new CheckboxTreeViewer(composite, SWT.MULTI | SWT.BORDER);
 		viewer.setUseHashlookup(true);
-		viewer.setContentProvider(new NavigationContentProvider());
+//		viewer.setContentProvider(new NavigationContentProvider());
 		viewer.setLabelProvider(new NavigationLabelProvider());
 		viewer.setInput(Navigator.getNavigationRoot());
 		viewer.addCheckStateListener(new NavigationTreeCheck(viewer));

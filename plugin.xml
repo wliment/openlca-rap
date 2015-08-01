@@ -3,7 +3,7 @@
 <plugin>
 
 	<extension
-         point="org.eclipse.rap.ui.editors">
+         point="org.eclipse.ui.editors">
          
       <editor 
 			class="org.openlca.app.editors.StartPage"
@@ -251,15 +251,15 @@
    <extension
          id="org.openlca.app.Application"
          name="openLCA"
-         point="org.eclipse.rap.ui.views.applications">
+         point="org.eclipse.rap.ui.entrypoint">
       <application>
          <run
-               class="org.openlca.app.rap.">
+               class="org.openlca.app.">
          </run>
       </application>
    </extension>
    <extension
-         point="org.eclipse.rap.ui.perspectives">
+         point="org.eclipse.ui.perspectives">
       <perspective
             name="%Perspective"
             class="org.openlca.app.rcp.RcpPerspective"
@@ -267,7 +267,7 @@
       </perspective>
    </extension>
    <extension
-         point="org.eclipse.rap.ui.views">
+         point="org.eclipse.ui.views">
       <view
             allowMultiple="false"
             class="org.openlca.app.navigation.Navigator"
@@ -278,7 +278,7 @@
    </extension>
    
    <extension
-         point="org.eclipse.rap.ui.preferencePages">
+         point="org.eclipse.ui.preferencePages">
 	  <page
             class="org.openlca.app.preferencepages.LocationPreferencePage"
             id="preferencepages.location"
@@ -311,9 +311,9 @@
       </page>
    </extension>
    <extension
-         point="org.eclipse.rap.ui.menus">
+         point="org.eclipse.ui.menus">
          <menuContribution
-               locationURI="toolbar:org.eclipse.rap.ui.trim.command2">
+               locationURI="toolbar:org.eclipse.ui.trim.command2">
                <toolbar
                      id="olca-app.search.toolbar">
                      <control
@@ -325,7 +325,7 @@
    </extension>
    <extension
          id="openLCA"
-         point="org.eclipse.rap.ui.views.products">
+         point="org.eclipse.rap.ui.entrypoint">
       <product
             application="org.openlca.app.Application"
             name="openLCA">
@@ -370,20 +370,20 @@
       </product>
    </extension>
    <extension
-         point="org.eclipse.rap.ui.navigator.viewer">
+         point="org.eclipse.ui.navigator.viewer">
       <viewer
             viewerId="views.navigation">
             <options>
 		        <property
-		            name="org.eclipse.rap.ui.navigator.hideLinkWithEditorAction"
+		            name="org.eclipse.ui.navigator.hideLinkWithEditorAction"
 		            value="true">
 		         </property>
 		         <property
-		            name="org.eclipse.rap.ui.navigator.hideCollapseAllAction"
+		            name="org.eclipse.ui.navigator.hideCollapseAllAction"
 		            value="true">
 		         </property>
 		         <property
-		            name="org.eclipse.rap.ui.navigator.hideAvailableCustomizationsDialog"
+		            name="org.eclipse.ui.navigator.hideAvailableCustomizationsDialog"
 		            value="true">
 		         </property>
 			</options>           
@@ -423,7 +423,7 @@
       </dragAssistant>
    </extension>
    <extension
-         point="org.eclipse.rap.ui.navigator.navigatorContent">
+         point="org.eclipse.ui.navigator.navigatorContent">
       <navigatorContent
             activeByDefault="true"
             contentProvider="org.openlca.app.navigation.NavigationContentProvider"
@@ -485,25 +485,11 @@
             name="%WasteFlows">
       </commonFilter>
    </extension>
-   <extension
-         point="org.eclipse.rap.ui.views.preferences">
-      <initializer
-            class="org.openlca.app.logging.LoggerPreference">
-      </initializer>
-      <initializer
-            class="org.openlca.app.Preferences">
-      </initializer>
-      <initializer
-            class="org.openlca.app.ilcd_network.Preference">
-      </initializer>
-      <initializer
-            class="org.openlca.app.rcp.update.UpdatePreference">
-      </initializer>
-   </extension>
+
    
    
    <extension
-         point="org.eclipse.rap.ui.importWizards">
+         point="org.eclipse.ui.importWizards">
       <category
             id="import.category.file"
             name="File Import">
@@ -584,7 +570,7 @@
    <!-- export wizards -->
    
    <extension
-         point="org.eclipse.rap.ui.exportWizards">
+         point="org.eclipse.ui.exportWizards">
       <category
             id="export.category.ecospold"
             name="EcoSpold">

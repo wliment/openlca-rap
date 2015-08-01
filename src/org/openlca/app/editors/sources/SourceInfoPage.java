@@ -78,7 +78,7 @@ class SourceInfoPage extends ModelPage<Source> {
 		layout.horizontalSpacing = 10;
 		layout.numColumns = 3;
 		composite.setLayout(layout);
-		composite.addMouseTrackListener(new DeleteFileVisibility());
+//		composite.addMouseTrackListener(new DeleteFileVisibility());
 		Button browseButton = toolkit.createButton(composite, Messages.Browse,
 				SWT.NONE);
 		Controls.onSelect(browseButton, (e) -> selectFile());
@@ -89,7 +89,7 @@ class SourceInfoPage extends ModelPage<Source> {
 	private void createDeleteLink(Composite composite) {
 		deleteLink = toolkit.createImageHyperlink(composite, SWT.TOP);
 		deleteLink.setImage(ImageType.DELETE_ICON_DISABLED.get());
-		deleteLink.addMouseTrackListener(new DeleteFileVisibility());
+//		deleteLink.addMouseTrackListener(new DeleteFileVisibility());
 		deleteLink.setVisible(false);
 		deleteLink.setToolTipText(Messages.Delete);
 		deleteLink.addHyperlinkListener(new DeleteFileListener());
@@ -99,7 +99,7 @@ class SourceInfoPage extends ModelPage<Source> {
 		fileLink = toolkit.createImageHyperlink(composite, SWT.TOP);
 		fileLink.setForeground(Colors.getLinkBlue());
 		fileLink.addHyperlinkListener(new OpenFileListener());
-		fileLink.addMouseTrackListener(new DeleteFileVisibility());
+//		fileLink.addMouseTrackListener(new DeleteFileVisibility());
 		String file = getModel().getExternalFile();
 		if (file != null) {
 			fileLink.setText(file);

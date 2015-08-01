@@ -87,7 +87,7 @@ class OpenMiniatureViewAction extends EditorAction {
 			ScrolledForm scrolledForm = toolkit.createScrolledForm(parent);
 			Composite body = scrolledForm.getBody();
 			body.setLayout(new FillLayout());
-			toolkit.paintBordersFor(body);
+//			toolkit.paintBordersFor(body);
 
 			SashForm sashForm = new SashForm(body, SWT.VERTICAL);
 			toolkit.adapt(sashForm, true, true);
@@ -100,7 +100,7 @@ class OpenMiniatureViewAction extends EditorAction {
 					SWT.NONE);
 			composite.setLayout(new GridLayout());
 			categorySection.setClient(composite);
-			toolkit.paintBordersFor(composite);
+//			toolkit.paintBordersFor(composite);
 			final Scale scale = new Scale(composite, SWT.NONE);
 			scale.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
 			final double[] values = GraphicalViewerConfigurator.ZOOM_LEVELS;

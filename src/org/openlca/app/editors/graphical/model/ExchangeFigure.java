@@ -15,9 +15,9 @@ import org.openlca.core.model.FlowType;
 
 class ExchangeFigure extends Label {
 
-	private static final Color BACKGROUND_COLOR = ColorConstants.white;
-	private static final Color TEXT_COLOR = ColorConstants.gray;
-	private static final Color TEXT_HIGHLIGHTED_COLOR = ColorConstants.lightBlue;
+	private static final Color BACKGROUND_COLOR = ColorConstants.white();
+	private static final Color TEXT_COLOR = ColorConstants.gray();
+	private static final Color TEXT_HIGHLIGHTED_COLOR = ColorConstants.lightBlue();
 
 	private ExchangeNode node;
 
@@ -26,7 +26,7 @@ class ExchangeFigure extends Label {
 		if (node.isDummy())
 			return;
 		Exchange exchange = node.getExchange();
-		setBorder(new LineBorder(ColorConstants.white, 1));
+		setBorder(new LineBorder(ColorConstants.white(), 1));
 		setForegroundColor(exchange.isAvoidedProduct() ? BACKGROUND_COLOR
 				: TEXT_COLOR);
 		setBackgroundColor(BACKGROUND_COLOR);

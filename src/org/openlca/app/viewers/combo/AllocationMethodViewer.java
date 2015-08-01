@@ -16,13 +16,13 @@ public class AllocationMethodViewer extends
 
 	@Override
 	public void select(AllocationMethod value) {
-		if (value == null)
-			if (isNullable())
-				((TableCombo) getViewer().getControl()).select(0);
-			else
-				super.select(AllocationMethod.NONE);
-		else
-			super.select(value);
+//		if (value == null)
+//			if (isNullable())
+//				((TableCombo) getViewer().getControl()).select(0);
+//			else
+//				super.select(AllocationMethod.NONE);
+//		else
+//			super.select(value);
 	}
 
 	@Override

@@ -65,7 +65,7 @@ public class CsvExportShell extends Shell {
 
 	protected void createContents() {
 		Composite composite = toolkit.createComposite(this, SWT.NONE);
-		toolkit.paintBordersFor(composite);
+//		toolkit.paintBordersFor(composite);
 		UI.gridLayout(composite, 1);
 		Group formatGroup = createGroup(Messages.CSVFormat, composite, 2);
 		pointCombo = createCombo(Messages.DecimalSeparator, formatGroup,
@@ -107,7 +107,7 @@ public class CsvExportShell extends Shell {
 		Composite composite = toolkit.createComposite(parent, SWT.NONE);
 		composite.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false,
 				false));
-		toolkit.paintBordersFor(composite);
+//		toolkit.paintBordersFor(composite);
 		UI.gridLayout(composite, 2);
 		Button ok = toolkit.createButton(composite, Messages.OK, SWT.NONE);
 		ok.setData("_method", "ok");

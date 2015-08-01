@@ -11,6 +11,7 @@ import org.eclipse.gef.editparts.ScalableRootEditPart;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Drawable;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
@@ -68,7 +69,7 @@ public class SankeyImageAction extends Action {
 			Rectangle rootFigureBounds = rootFigure.getBounds();
 			Image img = new Image(null, rootFigureBounds.width,
 					rootFigureBounds.height);
-			GC imageGC = new GC(img);
+			GC imageGC = new GC((Drawable) img);
 			Graphics graphics = new SWTGraphics(imageGC);
 			rootFigure.paint(graphics);
 			return img;

@@ -3,6 +3,7 @@ package org.openlca.app.editors.graphical.outline;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.draw2d.rap.swt.SWT;
 import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.ui.parts.ContentOutlinePage;
 import org.eclipse.gef.ui.parts.SelectionSynchronizer;
@@ -10,7 +11,8 @@ import org.eclipse.gef.ui.parts.TreeViewer;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.swt.SWT;
+//import org.eclipse.swt.SWT;
+//import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -71,11 +73,11 @@ public class OutlinePage extends ContentOutlinePage {
 
 	@Override
 	public void createControl(Composite parent) {
-		sash = new SashForm(parent, SWT.VERTICAL);
+		sash = new SashForm(parent, SWT.BORDER_DASH);
 		new Label(sash, SWT.BORDER_SOLID)
 				.setText(Messages.FilterByName);
 		searchText = new Text(sash, SWT.BORDER_SOLID);
-		searchText.addPaintListener(new SearchPaintListener());
+//		searchText.addPaintListener(new SearchPaintListener());
 		getViewer().createControl(sash);
 		getViewer().setEditDomain(editDomain);
 		getViewer().setEditPartFactory(new AppTreeEditPartFactory(model));

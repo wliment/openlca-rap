@@ -10,6 +10,7 @@ import org.eclipse.gef.LayerConstants;
 import org.eclipse.gef.editparts.ScalableRootEditPart;
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Drawable;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
@@ -66,7 +67,7 @@ class SaveImageAction extends Action {
 					.getLayer(LayerConstants.PRINTABLE_LAYERS);
 			Rectangle bounds = rootFigure.getBounds();
 			Image img = new Image(null, bounds.width, bounds.height);
-			GC imageGC = new GC(img);
+			GC imageGC = new GC((Drawable) img);
 			Graphics graphics = new SWTGraphics(imageGC);
 			rootFigure.paint(graphics);
 			ImageLoader imgLoader = new ImageLoader();

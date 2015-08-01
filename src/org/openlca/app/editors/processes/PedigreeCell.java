@@ -56,7 +56,7 @@ class PedigreeCell {
 		layout.marginWidth = 2;
 		composite.setLayout(layout);
 		label = toolkit.createLabel(composite, text, SWT.WRAP);
-		label.addMouseTrackListener(new MouseOver());
+//		label.addMouseTrackListener(new MouseOver());
 		label.addMouseListener(new MouseClick());
 	}
 

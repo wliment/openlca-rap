@@ -42,7 +42,6 @@ import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.UI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -128,9 +127,9 @@ public class ChartViewer extends Composite implements PaintListener,
 		setMenu(treeMenu);
 		treeManager.add(new SaveImageAction());
 		final Rectangle rectangle = this.getClientArea();
-		final Image chartImage = new Image(this.getDisplay(), rectangle);
-		final GC gcImage = new GC(chartImage);
-		renderer.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, gcImage);
+//		final Image chartImage = new Image(this.getDisplay(), rectangle);
+//		final GC gcImage = new GC(chartImage);
+//		renderer.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, gcImage);
 		final Bounds bounds = BoundsImpl.create(0, 0, rectangle.width,
 				rectangle.height);
 		bounds.scale(72d / renderer.getDisplayServer().getDpiResolution());
@@ -148,8 +147,8 @@ public class ChartViewer extends Composite implements PaintListener,
 			// render chart
 			generator.render(renderer, state);
 			final GC gc = e.gc;
-			gc.drawImage(chartImage, rectangle.x, rectangle.y);
-			image = chartImage;
+//			gc.drawImage(chartImage, rectangle.x, rectangle.y);
+//			image = chartImage;
 		} catch (final ChartException gex) {
 			log.error("Rendering chart failed", gex);
 
@@ -220,9 +219,9 @@ public class ChartViewer extends Composite implements PaintListener,
 			loader.data = new ImageData[] { image.getImageData() };
 			final FileDialog dialog = new FileDialog(UI.shell(), SWT.SAVE);
 			dialog.setText(Messages.SaveAsImage);
-			dialog.setFileName("chart.png");
-			dialog.setFilterExtensions(new String[] { "*.png" });
-			dialog.setFilterNames(new String[] { "*.png (Portable Network Graphics (PNG)" });
+//			dialog.setFileName("chart.png");
+//			dialog.setFilterExtensions(new String[] { "*.png" });
+//			dialog.setFilterNames(new String[] { "*.png (Portable Network Graphics (PNG)" });
 			final String fileName = dialog.open();
 			if (fileName != null && fileName.length() > 0) {
 				final File file = new File(fileName);
@@ -240,6 +239,12 @@ public class ChartViewer extends Composite implements PaintListener,
 			}
 		}
 
+	}
+
+	@Override
+	public void processAction(org.eclipse.birt.chart.model.data.Action action, StructureSource source) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

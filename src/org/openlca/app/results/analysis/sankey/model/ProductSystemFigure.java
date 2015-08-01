@@ -29,7 +29,7 @@ public class ProductSystemFigure extends Figure {
 	private Font infoFont;
 
 	public ProductSystemFigure(ProductSystemNode node) {
-		setForegroundColor(ColorConstants.black);
+		setForegroundColor(ColorConstants.black());
 		setBorder(new LineBorder(1));
 		productSystemNode = node;
 		addMouseListener(new SelectionChange());

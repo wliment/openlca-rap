@@ -47,9 +47,9 @@ public class SqlEditorPage extends FormPage {
 		Composite composite = UI.sectionClient(section, toolkit);
 		UI.gridLayout(composite, 1);
 		queryText = new StyledText(composite, SWT.BORDER);
-		toolkit.adapt(queryText);
-		UI.gridData(queryText, true, false).heightHint = 150;
-		queryText.addModifyListener(new SyntaxStyler(queryText));
+//		toolkit.adapt(queryText);
+//		UI.gridData(queryText, true, false).heightHint = 150;
+//		queryText.addModifyListener(new SyntaxStyler(queryText));
 		Actions.bind(section, new RunAction());
 	}
 
@@ -94,7 +94,7 @@ public class SqlEditorPage extends FormPage {
 		}
 
 		private List<String> getStatements() {
-			String statement = queryText.getText();
+			String statement = "sdfds";//queryText.getText();
 			List<String> statements = new ArrayList<>();
 			if (!statement.contains(";"))
 				statements.add(statement);
@@ -176,7 +176,7 @@ public class SqlEditorPage extends FormPage {
 
 		@Override
 		public void modifyText(ModifyEvent modifyEvent) {
-			String content = text.getText();
+			String content ="sdfds";// text.getText();
 			if (content == null)
 				return;
 			StringBuilder word = null;
@@ -223,19 +223,19 @@ public class SqlEditorPage extends FormPage {
 		}
 
 		private void setKeywordStyle(int wordStart, int length) {
-			StyleRange styleRange = new StyleRange();
-			styleRange.start = wordStart;
-			styleRange.length = length;
-			styleRange.fontStyle = SWT.BOLD;
-			styleRange.foreground = Colors.getColor(0, 0, 255);
-			text.setStyleRange(styleRange);
+//			StyleRange styleRange = new StyleRange();
+//			styleRange.start = wordStart;
+//			styleRange.length = length;
+//			styleRange.fontStyle = SWT.BOLD;
+//			styleRange.foreground = Colors.getColor(0, 0, 255);
+//			text.setStyleRange(styleRange);
 		}
 
 		private void setDefaultStyle(int wordStart, int length) {
-			StyleRange styleRange = new StyleRange();
-			styleRange.start = wordStart;
-			styleRange.length = length;
-			text.setStyleRange(styleRange);
+//			StyleRange styleRange = new StyleRange();
+//			styleRange.start = wordStart;
+//			styleRange.length = length;
+//			text.setStyleRange(styleRange);
 		}
 	}
 

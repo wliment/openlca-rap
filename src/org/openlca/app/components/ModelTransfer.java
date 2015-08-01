@@ -86,7 +86,7 @@ public final class ModelTransfer extends ByteArrayTransfer {
 	}
 
 	@Override
-	protected void javaToNative(Object object, TransferData transferData) {
+	public void javaToNative(Object object, TransferData transferData) {
 		if (!validate(object) || !isSupportedType(transferData))
 			return;
 		try (ByteArrayOutputStream bytesOut = new ByteArrayOutputStream();
@@ -100,7 +100,7 @@ public final class ModelTransfer extends ByteArrayTransfer {
 	}
 
 	@Override
-	protected Object nativeToJava(TransferData transferData) {
+	public Object nativeToJava(TransferData transferData) {
 		if (!isSupportedType(transferData))
 			return new Object[0];
 		Object o = super.nativeToJava(transferData);

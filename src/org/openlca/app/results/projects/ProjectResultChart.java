@@ -51,7 +51,7 @@ public class ProjectResultChart extends Composite {
 		setLayout(new GridLayout());
 		viewer = new ChartViewer(this);
 		viewer.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-		viewer.addPaintListener(viewer);
+//		viewer.addPaintListener(viewer);
 	}
 
 	public void renderChart(BaseDescriptor reference,

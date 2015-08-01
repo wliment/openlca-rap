@@ -29,7 +29,7 @@ public class BrowserFactory {
 			log.trace("Create system browser");
 			browser = new Browser(parent, SWT.NONE);
 		}
-		browser.setJavascriptEnabled(true);
+//		browser.setJavascriptEnabled(true);
 		return browser;
 	}
 

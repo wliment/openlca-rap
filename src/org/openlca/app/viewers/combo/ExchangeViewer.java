@@ -28,8 +28,8 @@ public class ExchangeViewer extends AbstractComboViewer<Exchange> {
 		super(parent);
 		this.directions = directions;
 		this.types = types;
-		if (this.directions != ALL_DIRECTIONS || this.types != ALL_TYPES)
-			getViewer().addFilter(new ExchangeFilter());
+//		if (this.directions != ALL_DIRECTIONS || this.types != ALL_TYPES)
+//			getViewer().addFilter(new ExchangeFilter());
 	}
 
 	@Override

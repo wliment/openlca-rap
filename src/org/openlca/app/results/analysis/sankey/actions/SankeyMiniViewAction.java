@@ -91,7 +91,7 @@ public class SankeyMiniViewAction extends Action {
 			ScrolledForm form = toolkit.createScrolledForm(parent);
 			Composite body = form.getBody();
 			body.setLayout(new FillLayout());
-			toolkit.paintBordersFor(body);
+//			toolkit.paintBordersFor(body);
 			SashForm sash = new SashForm(body, SWT.VERTICAL);
 			toolkit.adapt(sash, true, true);
 			Section section = toolkit
@@ -102,7 +102,7 @@ public class SankeyMiniViewAction extends Action {
 			Composite composite = toolkit.createComposite(section, SWT.NONE);
 			composite.setLayout(new GridLayout());
 			section.setClient(composite);
-			toolkit.paintBordersFor(composite);
+//			toolkit.paintBordersFor(composite);
 			return composite;
 		}
 

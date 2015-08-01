@@ -41,7 +41,7 @@ public class ImageExportAction extends Action {
 		Point size = composite.getSize();
 		Image image = new Image(composite.getDisplay(), size.x, size.y);
 		GC gc = new GC(composite);
-		gc.copyArea(image, 0, 0);
+//		gc.copyArea(image, 0, 0);
 
 		try {
 			writeToFile(image);

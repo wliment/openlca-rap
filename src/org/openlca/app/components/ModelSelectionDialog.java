@@ -78,11 +78,11 @@ public class ModelSelectionDialog extends FormDialog {
 
 	@Override
 	protected void createButtonsForButtonBar(final Composite parent) {
-		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
+		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.get().OK_LABEL,
 				false);
 		getButton(IDialogConstants.OK_ID).setEnabled(false);
 		createButton(parent, IDialogConstants.CANCEL_ID,
-				IDialogConstants.CANCEL_LABEL, true);
+				IDialogConstants.get().CANCEL_LABEL, true);
 	}
 
 	@Override

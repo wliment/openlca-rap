@@ -161,9 +161,9 @@ public class SankeyDiagram extends GraphicalEditor implements
 		getActionRegistry().registerAction(new ZoomOutAction(zoomManager));
 
 		zoomContributions = new ArrayList<>();
-		zoomContributions.add(ZoomManager.FIT_ALL);
-		zoomContributions.add(ZoomManager.FIT_HEIGHT);
-		zoomContributions.add(ZoomManager.FIT_WIDTH);
+//		zoomContributions.add(ZoomManager.FIT_ALL);
+//		zoomContributions.add(ZoomManager.FIT_HEIGHT);
+//		zoomContributions.add(ZoomManager.FIT_WIDTH);
 		zoomManager.setZoomLevelContributions(zoomContributions);
 
 		// create key handler

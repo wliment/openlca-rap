@@ -187,19 +187,19 @@ class ModelSelectionPage extends WizardPage {
 	// this page. Thus, we set the input of the tree viewer after receiving the
 	// first paint event.
 	private void registerInputHandler(Composite composite) {
-		composite.addPaintListener(new PaintListener() {
-			private boolean init = false;
-
-			@Override
-			public void paintControl(PaintEvent e) {
-				if (init) {
-					composite.removePaintListener(this);
-					return;
-				}
-				init = true;
-				setInitialInput();
-			}
-		});
+//		composite.addPaintListener(new PaintListener() {
+//			private boolean init = false;
+//
+//			@Override
+//			public void paintControl(PaintEvent e) {
+//				if (init) {
+//					composite.removePaintListener(this);
+//					return;
+//				}
+//				init = true;
+//				setInitialInput();
+//			}
+//		});
 	}
 
 	private void setInitialInput() {

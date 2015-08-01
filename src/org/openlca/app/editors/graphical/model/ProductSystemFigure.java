@@ -16,7 +16,7 @@ class ProductSystemFigure extends Figure {
 	private ProductSystemNode node;
 
 	ProductSystemFigure(ProductSystemNode node) {
-		setForegroundColor(ColorConstants.black);
+		setForegroundColor(ColorConstants.black());
 		setBorder(new LineBorder(1));
 		node.setFigure(this);
 		this.node = node;

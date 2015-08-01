@@ -65,11 +65,11 @@ public class UncertaintyDialog extends Dialog {
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
 		toolkit.adapt(parent);
-		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
+		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.get().OK_LABEL,
 				true);
 		createButton(parent, IDialogConstants.HELP_ID, Messages.Test, false);
 		createButton(parent, IDialogConstants.CANCEL_ID,
-				IDialogConstants.CANCEL_LABEL, false);
+				IDialogConstants.get().CANCEL_LABEL, false);
 		getShell().pack();
 	}
 

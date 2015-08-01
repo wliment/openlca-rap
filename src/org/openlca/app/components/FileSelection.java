@@ -79,8 +79,8 @@ public class FileSelection implements SelectionListener {
 			composite = new Composite(parent, SWT.NONE);
 
 		UI.gridData(composite, true, false);
-		if (toolkit != null)
-			toolkit.paintBordersFor(composite);
+//		if (toolkit != null)
+//			toolkit.paintBordersFor(composite);
 		UI.gridLayout(composite, 2).marginTop = 0;
 		if (toolkit != null)
 			text = toolkit.createText(composite, null, SWT.READ_ONLY);

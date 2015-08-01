@@ -33,9 +33,9 @@ public class StatisticFigure extends Figure {
 
 	public StatisticFigure() {
 		setOpaque(true);
-		setBackgroundColor(ColorConstants.white);
-		setForegroundColor(ColorConstants.black);
-		setBorder(new LineBorder(ColorConstants.black, 1));
+		setBackgroundColor(ColorConstants.white());
+		setForegroundColor(ColorConstants.black());
+		setBorder(new LineBorder(ColorConstants.black(), 1));
 		GridLayout gl = new GridLayout();
 		gl.numColumns = 12;
 		setLayoutManager(gl);
@@ -49,9 +49,9 @@ public class StatisticFigure extends Figure {
 
 	private Label initLabel(String text) {
 		Label textLabel = new Label(text + ":");
-		textLabel.setForegroundColor(ColorConstants.blue);
+		textLabel.setForegroundColor(ColorConstants.blue());
 		Label valueLabel = new Label("0");
-		valueLabel.setForegroundColor(ColorConstants.black);
+		valueLabel.setForegroundColor(ColorConstants.black());
 		add(textLabel);
 		add(valueLabel);
 		return valueLabel;
@@ -75,7 +75,7 @@ public class StatisticFigure extends Figure {
 	}
 
 	private void paintBoxes(Graphics graphics, Point boxSize) {
-		graphics.setBackgroundColor(ColorConstants.lightGray);
+		graphics.setBackgroundColor(ColorConstants.lightGray());
 		int height = getSize().height - marginBottom;
 		for (int interval = 0; interval < 100; interval++) {
 			int frequency = statistics.getAbsoluteFrequency(interval);
@@ -86,7 +86,7 @@ public class StatisticFigure extends Figure {
 					drawBox(graphics, boxSize, new Point(x, y));
 			}
 		}
-		graphics.setBackgroundColor(ColorConstants.white);
+		graphics.setBackgroundColor(ColorConstants.white());
 	}
 
 	private void drawBox(Graphics graphics, Point boxSize, Point topLeft) {
@@ -140,12 +140,12 @@ public class StatisticFigure extends Figure {
 	}
 
 	private void paintLines(Graphics graphics, Point boxSize) {
-		graphics.setForegroundColor(ColorConstants.red);
+		graphics.setForegroundColor(ColorConstants.red());
 		drawLine(graphics, statistics.getPercentileValue(5), boxSize);
 		drawLine(graphics, statistics.getMedian(), boxSize);
 		drawLine(graphics, statistics.getPercentileValue(95), boxSize);
 		drawLine(graphics, statistics.getMean(), boxSize);
-		graphics.setForegroundColor(ColorConstants.black);
+		graphics.setForegroundColor(ColorConstants.black());
 	}
 
 	private void drawLine(Graphics graphics, double val, Point boxSize) {

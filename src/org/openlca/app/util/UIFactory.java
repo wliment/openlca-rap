@@ -93,7 +93,7 @@ public final class UIFactory {
 		final GridData gd_categoryComposite = new GridData(SWT.FILL, SWT.FILL,
 				true, false);
 		categoryComposite.setLayoutData(gd_categoryComposite);
-		toolkit.paintBordersFor(categoryComposite);
+//		toolkit.paintBordersFor(categoryComposite);
 
 		// create category section
 		final Section categorySection = toolkit.createSection(

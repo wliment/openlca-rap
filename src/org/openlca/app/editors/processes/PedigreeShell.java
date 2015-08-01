@@ -127,7 +127,7 @@ class PedigreeShell extends Shell {
 		Composite header = toolkit.createComposite(root);
 		header.setLayout(new GridLayout(1, false));
 		UI.gridData(header, true, false);
-		toolkit.paintBordersFor(header);
+//		toolkit.paintBordersFor(header);
 		toolkit.createLabel(header,
 				Messages.PedigreeMatrixMessage);
 	}
@@ -135,14 +135,14 @@ class PedigreeShell extends Shell {
 	private void createSeparator(Composite root) {
 		Composite sep = toolkit.createCompositeSeparator(root);
 		UI.gridData(sep, true, false).heightHint = 1;
-		toolkit.paintBordersFor(sep);
+//		toolkit.paintBordersFor(sep);
 	}
 
 	private void createFooter(Composite root) {
 		Composite composite = toolkit.createComposite(root);
 		UI.gridLayout(composite, 7);
 		UI.gridData(composite, true, false);
-		toolkit.paintBordersFor(composite);
+//		toolkit.paintBordersFor(composite);
 		toolkit.createLabel(composite, Messages.BaseUncertainty + ": ");
 		baseUncertaintyText = toolkit.createText(composite, "1.0");
 		UI.gridData(baseUncertaintyText, false, false).widthHint = 80;

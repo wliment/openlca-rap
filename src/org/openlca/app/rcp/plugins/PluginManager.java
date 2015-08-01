@@ -62,7 +62,7 @@ public class PluginManager extends FormDialog implements HtmlPage {
 		body.getParent().getParent().setLayout(createNoSpacingLayout());
 		body.getParent().setLayout(createNoSpacingLayout());
 		body.setLayout(createNoSpacingLayout());
-		toolkit.paintBordersFor(body);
+//		toolkit.paintBordersFor(body);
 		UI.gridData(body, true, true);
 		browser = UI.createBrowser(body, this);
 		UI.gridData(browser, true, true);
@@ -80,7 +80,7 @@ public class PluginManager extends FormDialog implements HtmlPage {
 			}
 		});
 		createButton(parent, IDialogConstants.CANCEL_ID,
-				IDialogConstants.CLOSE_LABEL, true);
+				IDialogConstants.get().CLOSE_LABEL, true);
 	}
 
 	private GridLayout createNoSpacingLayout() {

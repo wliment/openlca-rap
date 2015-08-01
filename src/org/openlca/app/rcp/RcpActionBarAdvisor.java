@@ -141,7 +141,7 @@ public class RcpActionBarAdvisor extends ActionBarAdvisor {
 		exportAction = ActionFactory.EXPORT.create(window);
 		exitAction = ActionFactory.QUIT.create(window);
 		showViews = ContributionItemFactory.VIEWS_SHORTLIST.create(window);
-		aboutAction = ActionFactory.ABOUT.create(window);
+//		aboutAction = ActionFactory.ABOUT.create(window);
 	}
 
 	private class HelpAction extends Action {

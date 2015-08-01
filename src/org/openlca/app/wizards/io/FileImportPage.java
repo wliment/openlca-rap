@@ -163,16 +163,16 @@ public class FileImportPage extends WizardPage {
 	private void setViewerInput() {
 		// we need to set the input when the components are already painted to
 		// avoid SWT sizing problems
-		fileViewer.getTable().addPaintListener(new PaintListener() {
-			@Override
-			public void paintControl(PaintEvent e) {
-				if (lastDir != null) {
-					fileViewer.setInput(lastDir);
-					directoryViewer.setInput(lastDir);
-				}
-				fileViewer.getTable().removePaintListener(this);
-			}
-		});
+//		fileViewer.getTable().addPaintListener(new PaintListener() {
+//			@Override
+//			public void paintControl(PaintEvent e) {
+//				if (lastDir != null) {
+//					fileViewer.setInput(lastDir);
+//					directoryViewer.setInput(lastDir);
+//				}
+//				fileViewer.getTable().removePaintListener(this);
+//			}
+//		});
 	}
 
 	private void createDirectoryText(Composite composite) {

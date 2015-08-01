@@ -46,8 +46,8 @@ class ProcessFigure extends Figure {
 	static final int MARGIN_HEIGHT = 2;
 	static final int MARGIN_WIDTH = 4;
 	private static final int TEXT_HEIGHT = 16;
-	private static final Color LINE_COLOR = ColorConstants.gray;
-	private static final Color TEXT_COLOR = ColorConstants.black;
+	private static final Color LINE_COLOR = ColorConstants.gray();
+	private static final Color TEXT_COLOR = ColorConstants.black();
 
 	private ProcessNode node;
 	private ProcessExpander leftExpander;
@@ -137,7 +137,7 @@ class ProcessFigure extends Figure {
 	@Override
 	protected void paintFigure(Graphics graphics) {
 		graphics.pushState();
-		graphics.setBackgroundColor(ColorConstants.white);
+		graphics.setBackgroundColor(ColorConstants.white());
 		graphics.fillRectangle(new Rectangle(getLocation(), getSize()));
 		paintTop(graphics);
 		if (!node.isMinimized() || GraphAnimation.isRunning())
@@ -150,7 +150,7 @@ class ProcessFigure extends Figure {
 		if (node.getProcess().getProcessType() == ProcessType.LCI_RESULT) {
 			LineBorder outer = new LineBorder(LINE_COLOR, 1);
 			LineBorder innerInner = new LineBorder(LINE_COLOR, 1);
-			LineBorder innerOuter = new LineBorder(ColorConstants.white, 1);
+			LineBorder innerOuter = new LineBorder(ColorConstants.white(), 1);
 			CompoundBorder inner = new CompoundBorder(innerOuter, innerInner);
 			CompoundBorder border = new CompoundBorder(outer, inner);
 			setBorder(border);
@@ -201,7 +201,7 @@ class ProcessFigure extends Figure {
 				+ MINIMUM_HEIGHT + MARGIN_HEIGHT));
 		graphics.drawText(Messages.Outputs, new Point(x + 2 * width / 3, y
 				+ MINIMUM_HEIGHT + MARGIN_HEIGHT));
-		graphics.setForegroundColor(ColorConstants.black);
+		graphics.setForegroundColor(ColorConstants.black());
 	}
 
 	@Override
@@ -209,7 +209,7 @@ class ProcessFigure extends Figure {
 		super.paintChildren(graphics);
 		if (getInputOutputFigure() == null)
 			return;
-		Rectangle clip = Rectangle.SINGLETON;
+		Rectangle clip = Rectangle.getSINGLETON();
 		if (getInputOutputFigure().isVisible()
 				&& getInputOutputFigure().intersects(graphics.getClip(clip))) {
 			graphics.clipRect(getInputOutputFigure().getBounds());

@@ -98,7 +98,7 @@ public class ContributionTreePage extends FormPage {
 		tree.setSorter(new ContributionSorter());
 		UI.gridData(tree.getTree(), true, true);
 		toolkit.adapt(tree.getTree(), false, false);
-		toolkit.paintBordersFor(tree.getTree());
+//		toolkit.paintBordersFor(tree.getTree());
 		createMenu();
 	}
 

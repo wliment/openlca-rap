@@ -9,6 +9,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
+import org.eclipse.swt.graphics.Drawable;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
@@ -128,7 +129,7 @@ public class ContributionChart {
 		Image image = imageRegistry.get(key);
 		if (image == null) {
 			image = new Image(Display.getCurrent(), 30, 15);
-			GC gc = new GC(image);
+			GC gc = new GC((Drawable) image);
 			if (index != -1)
 				gc.setBackground(Colors.getColor(FaviColor
 						.getRgbForChart(index)));

@@ -89,10 +89,10 @@ public class ConnectorDialog extends Dialog {
 
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
-		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
+		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.get().OK_LABEL,
 				true);
 		createButton(parent, IDialogConstants.CANCEL_ID,
-				IDialogConstants.CANCEL_LABEL, false);
+				IDialogConstants.get().CANCEL_LABEL, false);
 	}
 
 	private List<ProcessDescriptor> loadPossibleConnectors() {
@@ -160,7 +160,7 @@ public class ConnectorDialog extends Dialog {
 		viewer.setCellModifier(new ProcessCellModifier());
 		viewer.setCellEditors(editors);
 
-		toolkit.paintBordersFor(composite);
+//		toolkit.paintBordersFor(composite);
 
 		return container;
 	}

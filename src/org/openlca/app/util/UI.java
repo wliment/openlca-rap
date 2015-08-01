@@ -1,5 +1,6 @@
 package org.openlca.app.util;
 
+import org.eclipse.nebula.widgets.tablecombo.TableCombo;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.browser.ProgressEvent;
@@ -119,7 +120,7 @@ public class UI {
 
 	public static void adapt(FormToolkit toolkit, Composite composite) {
 		toolkit.adapt(composite);
-		toolkit.paintBordersFor(composite);
+//		toolkit.paintBordersFor(composite);
 	}
 
 	public static GridData gridData(Control control, boolean hFill,
@@ -188,7 +189,7 @@ public class UI {
 		bodyLayout.verticalSpacing = 10;
 		bodyLayout.numColumns = 1;
 		body.setLayout(bodyLayout);
-		toolkit.paintBordersFor(body);
+//		toolkit.paintBordersFor(body);
 		gridData(body, true, true);
 		return body;
 	}
@@ -317,6 +318,11 @@ public class UI {
 		gridData.verticalAlignment = SWT.TOP;
 		gridData.verticalIndent = 2;
 		return labelWidget;
+	}
+
+	public static Object gridData(TableCombo combo, boolean hFill, boolean vFill) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

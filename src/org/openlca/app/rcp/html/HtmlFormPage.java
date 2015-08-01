@@ -69,7 +69,7 @@ public abstract class HtmlFormPage extends FormPage implements HtmlPage {
 		toolkit = managedForm.getToolkit();
 		Composite body = form.getBody();
 		body.setLayout(UI.gridLayout(body, 1, 0, 0));
-		toolkit.paintBordersFor(body);
+//		toolkit.paintBordersFor(body);
 		UI.gridData(body, true, true);
 		createContentBeforeBrowser(body);
 		createBrowser(body);

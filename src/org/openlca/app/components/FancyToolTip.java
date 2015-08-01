@@ -10,7 +10,7 @@
 
 package org.openlca.app.components;
 
-import org.eclipse.jface.window.DefaultToolTip;
+//import org.eclipse.jface.window.DefaultToolTip;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
@@ -32,7 +32,7 @@ import org.openlca.core.model.RootEntity;
  * Creates a tool tip for controls containing model components, which shows the
  * name and description of the pointed model component in a pop-up section.
  */
-public final class FancyToolTip extends DefaultToolTip {
+public final class FancyToolTip {
 
 	/**
 	 * The form toolkit to use
@@ -48,11 +48,10 @@ public final class FancyToolTip extends DefaultToolTip {
 	 *            the form toolkit with which the tool tip should be painted
 	 */
 	public FancyToolTip(final Control control, final FormToolkit toolkit) {
-		super(control);
+//		super(control);
 		formToolkit = toolkit;
 	}
 
-	@Override
 	protected Composite createToolTipContentArea(final Event event,
 			final Composite parent) {
 		Composite composite = null;
@@ -103,7 +102,7 @@ public final class FancyToolTip extends DefaultToolTip {
 					section, SWT.NONE);
 			descriptionComposite.setLayout(new TableWrapLayout());
 			section.setClient(descriptionComposite);
-			formToolkit.paintBordersFor(descriptionComposite);
+//			formToolkit.paintBordersFor(descriptionComposite);
 
 			// create text field for description
 			final Text textField = formToolkit.createText(descriptionComposite,

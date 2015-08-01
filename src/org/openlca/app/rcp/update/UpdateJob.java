@@ -87,9 +87,9 @@ public class UpdateJob extends UIJob {
 					"Ready to install new version, "
 							+ "close application and start now?",
 					MessageDialog.QUESTION_WITH_CANCEL, new String[] {
-							IDialogConstants.YES_LABEL,
-							IDialogConstants.NO_LABEL,
-							IDialogConstants.CANCEL_LABEL }, 0);
+							IDialogConstants.get().YES_LABEL,
+							IDialogConstants.get().NO_LABEL,
+							IDialogConstants.get().CANCEL_LABEL }, 0);
 			setBlockOnOpen(false);
 			int style = SWT.NONE;
 			style &= SWT.SHEET;
