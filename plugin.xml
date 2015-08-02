@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-
+<extension
+         id="openlca.entrypoints"
+         point="org.eclipse.rap.ui.entrypoint">
+      <entrypoint id="openlca.entrypoint"
+      		path="/openlca"
+            applicationId="org.openlca.app.Application">
+      </entrypoint>
+   </extension>
+   <extension
+         id="org.openlca.app.Application"
+         name="openLCA-rap"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="org.openlca.app.rcp.RcpApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="%Perspective"
+            class="org.openlca.app.rcp.RcpPerspective"
+            id="perspectives.standard">
+      </perspective>
+   </extension>
 	<extension
          point="org.eclipse.ui.editors">
          
@@ -248,24 +276,8 @@
       </wizard>
    </extension>   
    
-   <extension
-         id="org.openlca.app.Application"
-         name="openLCA"
-         point="org.eclipse.rap.ui.entrypoint">
-      <application>
-         <run
-               class="org.openlca.app.">
-         </run>
-      </application>
-   </extension>
-   <extension
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            name="%Perspective"
-            class="org.openlca.app.rcp.RcpPerspective"
-            id="perspectives.standard">
-      </perspective>
-   </extension>
+  
+
    <extension
          point="org.eclipse.ui.views">
       <view
@@ -325,7 +337,7 @@
    </extension>
    <extension
          id="openLCA"
-         point="org.eclipse.rap.ui.entrypoint">
+         point="org.eclipse.core.runtime.products">
       <product
             application="org.openlca.app.Application"
             name="openLCA">
@@ -485,7 +497,21 @@
             name="%WasteFlows">
       </commonFilter>
    </extension>
-
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.openlca.app.logging.LoggerPreference">
+      </initializer>
+      <initializer
+            class="org.openlca.app.Preferences">
+      </initializer>
+      <initializer
+            class="org.openlca.app.ilcd_network.Preference">
+      </initializer>
+      <initializer
+            class="org.openlca.app.rcp.update.UpdatePreference">
+      </initializer>
+   </extension>
    
    
    <extension
@@ -692,41 +718,5 @@
       		id="org.openlca.app.wizards.io.JsonExportWizard"
       		name="JSON-LD">
       </wizard>
-   </extension>
-   <extension
-         id="openLCA"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.openlca.app.Application"
-            name="openLCA">
-         <property
-               name="windowImages"
-               value="icons/logo_16_32bit.png,icons/logo_32_32bit.png,icons/logo_48_32bit.png,icons/logo_64.png,icons/logo_128.png">
-         </property>
-         <property
-               name="aboutText"
-               value="openLCA 1.4.2&#x0A;&#x0A;Copyright (c) 2007 - 2015 GreenDelta. All rights reserved.&#x0A;Visit http://openlca.org and http://greendelta.com&#x0A;&#x0A;This product includes software developed in the openLCA &#x0A;project and other open source software.">
-         </property>
-         <property
-               name="aboutImage"
-               value="icons/about.png">
-         </property>
-         <property
-               name="startupForegroundColor"
-               value="000000">
-         </property>
-         <property
-               name="startupProgressRect"
-               value="0,360,540,5">
-         </property>
-         <property
-               name="startupMessageRect"
-               value="7,500,445,20">
-         </property>
-         <property
-               name="preferenceCustomization"
-               value="plugin_customization.ini">
-         </property>
-      </product>
    </extension>
 </plugin>

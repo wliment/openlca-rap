@@ -26,7 +26,6 @@ import org.openlca.app.db.Database;
 import org.openlca.app.editors.DataBinding;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Controls;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.UI;
 import org.openlca.core.database.IDatabase;
 import org.openlca.core.model.CostCategory;
@@ -66,7 +65,7 @@ class ProcessCostEntryDialog extends Dialog {
 		if (!createNew) {
 			int i = combo.getSelectionIndex();
 			if (i < 0 || i >= comboItems.length)
-				Error.showBox(Messages.NoCostCategorySelected);
+				 i =0;
 			else {
 				newEntry.setCostCategory(comboItems[i]);
 				super.okPressed();
@@ -74,7 +73,7 @@ class ProcessCostEntryDialog extends Dialog {
 		} else {
 			String newName = text.getText().trim();
 			if (!newNameOk(newName))
-				Error.showBox(Messages.NameEmptyOrAlreadyExists);
+				return;
 			else {
 				createCostCategory(newName);
 				super.okPressed();

@@ -12,7 +12,6 @@ import org.openlca.app.db.Database;
 import org.openlca.app.preferencepages.FeatureFlag;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Controls;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.UI;
 import org.openlca.app.viewers.combo.AllocationMethodViewer;
 import org.openlca.app.viewers.combo.ImpactMethodViewer;
@@ -95,8 +94,8 @@ class CalculationWizardPage extends WizardPage {
 			try {
 				iterationCount = Integer.parseInt(text);
 			} catch (Exception e2) {
-				Error.showBox(Messages.InvalidNumber, text + " "
-						+ Messages.IsNotValidNumber);
+//				Error.showBox(Messages.InvalidNumber, text + " "
+//						+ Messages.IsNotValidNumber);
 			}
 		});
 	}

@@ -11,7 +11,7 @@ import org.openlca.app.navigation.CategoryElement;
 import org.openlca.app.navigation.INavigationElement;
 import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
-import org.openlca.app.util.Error;
+//import org.openlca.app.util.Error;
 import org.openlca.app.util.UI;
 import org.openlca.core.model.Category;
 import org.slf4j.Logger;
@@ -55,7 +55,7 @@ public class RenameCategoryAction extends Action implements INavigationAction {
 			return;
 		String newName = dialog.getValue();
 		if (newName == null || newName.trim().isEmpty()) {
-			Error.showBox(Messages.NameCannotBeEmpty);
+//			Error.showBox(Messages.NameCannotBeEmpty);
 			return;
 		}
 		doUpdate(newName);

@@ -21,7 +21,6 @@ import org.openlca.app.editors.IEditor;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Actions;
 import org.openlca.app.util.Dialog;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.UI;
 import org.openlca.app.util.UncertaintyLabel;
 import org.openlca.app.util.Viewers;
@@ -265,8 +264,7 @@ public class ParameterSection {
 				return;
 			String name = text.trim();
 			if (!Parameter.isValidName(name)) {
-				Error.showBox(Messages.InvalidParameterName, name + " "
-						+ Messages.IsNotValidParameterName);
+				
 				return;
 			}
 			param.setName(name);
@@ -308,8 +306,7 @@ public class ParameterSection {
 				editor.setDirty(true);
 				support.evaluate();
 			} catch (Exception e) {
-				Error.showBox(Messages.InvalidFormula,
-						Strings.cut(e.getMessage(), 75));
+				
 			}
 		}
 	}

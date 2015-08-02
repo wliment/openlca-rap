@@ -33,7 +33,6 @@ import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Actions;
 import org.openlca.app.util.Controls;
 import org.openlca.app.util.Editors;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.Labels;
 import org.openlca.app.util.UI;
 import org.openlca.app.util.Viewers;
@@ -287,8 +286,8 @@ class ProjectSetupPage extends ModelPage<Project> {
 				variant.setAmount(val);
 				editor.setDirty(true);
 			} catch (Exception e) {
-				Error.showBox(Messages.InvalidNumber, text + " "
-						+ Messages.IsNotValidNumber);
+//				Error.showBox(Messages.InvalidNumber, text + " "
+//						+ Messages.IsNotValidNumber);
 			}
 		}
 	}

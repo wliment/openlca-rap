@@ -9,7 +9,6 @@ import org.openlca.app.navigation.CategoryElement;
 import org.openlca.app.navigation.INavigationElement;
 import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.Question;
 import org.openlca.core.database.BaseDao;
 import org.openlca.core.model.Category;
@@ -45,7 +44,7 @@ public class DeleteCategoryAction extends Action implements INavigationAction {
 		if (categoryElement == null)
 			return;
 		if (categoryElement.getChildren().size() != 0) {
-			Error.showBox(Messages.CategoryNotEmpty);
+//			Error.showBox(Messages.CategoryNotEmpty);
 			return;
 		}
 		boolean b = Question.ask(Messages.Delete,

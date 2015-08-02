@@ -37,8 +37,7 @@ public class GlobalParameterEditor extends FormEditor implements IEditor {
 
 	public static void open() {
 		if (Database.get() == null) {
-			org.openlca.app.util.Error.showBox(
-					Messages.NoDatabaseOpened, Messages.NeedOpenDatabase);
+			
 			return;
 		}
 		GlobalParameterInput input = new GlobalParameterInput();
@@ -67,8 +66,8 @@ public class GlobalParameterEditor extends FormEditor implements IEditor {
 			String message = errors.get(0);
 			if (errors.size() > 1)
 				message += " (" + (errors.size() - 1) + " more)";
-			org.openlca.app.util.Error.showBox(
-					Messages.FormulaEvaluationFailed, message);
+//			org.openlca.app.util.Error.showBox(
+//					Messages.FormulaEvaluationFailed, message);
 		}
 	}
 

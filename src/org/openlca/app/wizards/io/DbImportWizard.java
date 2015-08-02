@@ -48,8 +48,8 @@ public class DbImportWizard extends Wizard implements IImportWizard {
 	@Override
 	public boolean performFinish() {
 		if (Database.get() == null) {
-			org.openlca.app.util.Error.showBox(Messages.NoDatabaseOpened,
-					Messages.DBImportNoTarget);
+//			org.openlca.app.util.Error.showBox(Messages.NoDatabaseOpened,
+//					Messages.DBImportNoTarget);
 			return true;
 		}
 		try {
@@ -77,15 +77,15 @@ public class DbImportWizard extends Wizard implements IImportWizard {
 		if (state == VersionState.CURRENT)
 			return true;
 		if (state == null || state == VersionState.ERROR) {
-			org.openlca.app.util.Error.showBox(Messages.ConnectionFailed,
-					Messages.DBImportNoTargetConnectionFailedMessage);
+//			org.openlca.app.util.Error.showBox(Messages.ConnectionFailed,
+//					Messages.DBImportNoTargetConnectionFailedMessage);
 			return false;
 		}
 		if (state == VersionState.NEWER) {
-			org.openlca.app.util.Error
-					.showBox(
-							Messages.VersionNewer,
-							Messages.DBImportVersionNewerMessage);
+//			org.openlca.app.util.Error
+//					.showBox(
+//							Messages.VersionNewer,
+//							Messages.DBImportVersionNewerMessage);
 			return false;
 		}
 		if (config.getMode() == config.FILE_MODE)

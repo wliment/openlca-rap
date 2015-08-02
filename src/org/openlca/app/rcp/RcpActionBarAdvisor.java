@@ -72,7 +72,7 @@ public class RcpActionBarAdvisor extends ActionBarAdvisor {
 		HelpAction helpAction = new HelpAction();
 		helpMenu.add(helpAction);
 		helpMenu.add(new Separator());
-		helpMenu.add(aboutAction);
+//		helpMenu.add(aboutAction);
 		menuBar.add(helpMenu);
 	}
 

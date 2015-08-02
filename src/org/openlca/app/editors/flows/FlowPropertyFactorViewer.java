@@ -16,7 +16,7 @@ import org.openlca.app.Messages;
 import org.openlca.app.components.ModelSelectionDialog;
 import org.openlca.app.db.Database;
 import org.openlca.app.rcp.ImageType;
-import org.openlca.app.util.Error;
+//import org.openlca.app.util.Error;
 import org.openlca.app.util.UI;
 import org.openlca.app.util.tables.Tables;
 import org.openlca.app.viewers.table.AbstractTableViewer;
@@ -117,16 +117,16 @@ class FlowPropertyFactorViewer extends AbstractTableViewer<FlowPropertyFactor> {
 			return;
 		Flow flow = editor.getModel();
 		if (fac.equals(flow.getReferenceFactor())) {
-			Error.showBox("@Cannot delete reference flow property",
-					"@The reference flow property of a flow cannot be deleted.");
+//			Error.showBox("@Cannot delete reference flow property",
+//					"@The reference flow property of a flow cannot be deleted.");
 			return;
 		}
 		FlowPropertyFactorUseSearch search = new FlowPropertyFactorUseSearch(
 				flow, Database.get());
 		List<BaseDescriptor> list = search.findUses(fac);
 		if (!list.isEmpty()) {
-			Error.showBox("@Cannot delete flow property",
-					"@The given flow property is used in processes or LCIA methods.");
+//			Error.showBox("@Cannot delete flow property",
+//					"@The given flow property is used in processes or LCIA methods.");
 			return;
 		}
 		flow.getFlowPropertyFactors().remove(fac);

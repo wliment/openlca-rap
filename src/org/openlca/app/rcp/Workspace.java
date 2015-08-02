@@ -37,7 +37,7 @@ public class Workspace {
 			if (dir == null)
 				dir = getFromUserHome();
 			URL workspaceUrl = new URL("file", null, dir.getAbsolutePath());
-			Platform.getInstanceLocation().set(workspaceUrl, true);
+//			Platform.getInstanceLocation().set(workspaceUrl, true);
 			Workspace.dir = dir;
 			return dir;
 		} catch (Exception e) {

@@ -37,8 +37,8 @@ class ConfigMemCheck {
 	}
 
 	private static int showError(String message) {
-		org.openlca.app.util.Error
-				.showBox(Messages.InvalidMemoryValue, message);
+//		org.openlca.app.util.Error
+//				.showBox(Messages.InvalidMemoryValue, message);
 		return -1;
 	}
 

@@ -15,7 +15,7 @@ import org.openlca.app.App;
 import org.openlca.app.Messages;
 import org.openlca.app.util.Colors;
 import org.openlca.app.util.Controls;
-import org.openlca.app.util.Error;
+//import org.openlca.app.util.Error;
 import org.openlca.app.util.Labels;
 import org.openlca.app.util.UI;
 import org.openlca.core.math.NumberGenerator;
@@ -349,7 +349,8 @@ public class UncertaintyDialog extends Dialog {
 				return true;
 			} catch (Exception e) {
 				if (interpreterScope == null)
-					Error.showBox(s + " " + Messages.IsNotValidNumber);
+					System.out.println(s + " " + Messages.IsNotValidNumber);
+//					Error.showBox(s + " " + Messages.IsNotValidNumber);
 				return false;
 			}
 		}
@@ -361,7 +362,7 @@ public class UncertaintyDialog extends Dialog {
 				interpreterScope.eval(s);
 				return true;
 			} catch (Exception e) {
-				Error.showBox(Messages.FormulaEvaluationFailed + ": " + s);
+//				Error.showBox(Messages.FormulaEvaluationFailed + ": " + s);
 				return false;
 			}
 		}

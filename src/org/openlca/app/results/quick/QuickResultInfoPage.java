@@ -17,7 +17,6 @@ import org.openlca.app.db.Cache;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.results.ContributionChartSection;
 import org.openlca.app.util.Controls;
-import org.openlca.app.util.InformationPopup;
 import org.openlca.app.util.Labels;
 import org.openlca.app.util.UI;
 import org.openlca.core.math.CalculationSetup;
@@ -102,7 +101,7 @@ public class QuickResultInfoPage extends FormPage {
 			@Override
 			public void run() {
 				if (export.doneWithSuccess()) {
-					InformationPopup.show(Messages.ExportDone);
+//					InformationPopup.show(Messages.ExportDone);
 				}
 			}
 		});

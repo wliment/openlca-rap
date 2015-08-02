@@ -11,7 +11,6 @@ import org.openlca.app.components.FileChooser;
 import org.openlca.app.db.Cache;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Editors;
-import org.openlca.app.util.InformationPopup;
 import org.openlca.core.math.CalculationSetup;
 import org.openlca.core.results.ContributionResultProvider;
 import org.openlca.io.xls.results.QuickResultExport;
@@ -58,10 +57,7 @@ public class QuickResultActions extends EditorActionBarContributor {
 			QuickResultExport export = new QuickResultExport(
 					setup, result, Cache.getEntityCache());
 			export.setExportFile(file);
-			App.run(Messages.ExportResults, export, () -> {
-				if (export.doneWithSuccess())
-					InformationPopup.show(Messages.ExportDone);
-			});
+			
 		}
 	}
 }

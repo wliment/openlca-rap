@@ -30,8 +30,8 @@ class Exchanges {
 		if (process.getQuantitativeReference() == null)
 			return false;
 		if (exchanges.contains(process.getQuantitativeReference())) {
-			org.openlca.app.util.Error.showBox(Messages.CannotDeleteRefFlow,
-					Messages.CannotDeleteRefFlowMessage);
+//			org.openlca.app.util.Error.showBox(Messages.CannotDeleteRefFlow,
+//					Messages.CannotDeleteRefFlowMessage);
 			return true;
 		}
 		return false;
@@ -52,9 +52,9 @@ class Exchanges {
 		List<BaseDescriptor> list = search.findUses(products);
 		if (list.isEmpty())
 			return false;
-		org.openlca.app.util.Error.showBox("@Cannot remove exchanges",
-				"@One or more of the selected exchanges are used already in a "
-						+ "product system and therefore cannot be deleted.");
+//		org.openlca.app.util.Error.showBox("@Cannot remove exchanges",
+//				"@One or more of the selected exchanges are used already in a "
+//						+ "product system and therefore cannot be deleted.");
 		return true;
 	}
 

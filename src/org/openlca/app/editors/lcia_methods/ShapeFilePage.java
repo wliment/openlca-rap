@@ -27,7 +27,6 @@ import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Actions;
 import org.openlca.app.util.Colors;
 import org.openlca.app.util.Controls;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.Question;
 import org.openlca.app.util.UI;
 import org.openlca.app.util.Viewers;
@@ -120,16 +119,15 @@ class ShapeFilePage extends FormPage {
 
 	private void checkRunImport(File file) {
 		if (!ShapeFileUtils.isValid(file)) {
-			org.openlca.app.util.Error.showBox("Invalid file", "The file "
-					+ file.getName() + " is not a valid shape file.");
+			//TODO
 			return;
 		}
 		if (ShapeFileUtils.alreadyExists(method, file)) {
-			org.openlca.app.util.Error
-					.showBox(
-							"File already exists",
-							"A shape "
-									+ "file with the given name already exists for this method.");
+//			org.openlca.app.util.Error
+//					.showBox(
+//							"File already exists",
+//							"A shape "
+//									+ "file with the given name already exists for this method.");
 			return;
 		}
 		try {
@@ -290,9 +288,9 @@ class ShapeFilePage extends FormPage {
 			if (param == null || exists(param))
 				return;
 			if (otherExists(param)) {
-				Error.showBox("Parameter with same name exists",
-						"An other parameter with the same name already exists "
-								+ "in this LCIA method");
+//				Error.showBox("Parameter with same name exists",
+//						"An other parameter with the same name already exists "
+//								+ "in this LCIA method");
 				return;
 			}
 			addParam(param);
@@ -304,9 +302,9 @@ class ShapeFilePage extends FormPage {
 			ShapeFileParameter param = Viewers
 					.getFirstSelected(section.parameterTable.viewer);
 			if (param == null) {
-				Error.showBox("No parameter selected", "There is no shapefile "
-						+ "parameter selected that could be added as "
-						+ "method parameter");
+//				Error.showBox("No parameter selected", "There is no shapefile "
+//						+ "parameter selected that could be added as "
+//						+ "method parameter");
 				return null;
 			}
 			return param;

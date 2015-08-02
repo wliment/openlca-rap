@@ -18,7 +18,6 @@ import org.openlca.app.Messages;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Actions;
 import org.openlca.app.util.Controls;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.Labels;
 import org.openlca.app.util.Numbers;
 import org.openlca.app.util.UI;
@@ -55,14 +54,14 @@ class AllocationPage extends FormPage {
 		try {
 			double val = Double.parseDouble(text);
 			if (val < -0.0001 || val > 1.0001) {
-				Error.showBox(Messages.InvalidAllocationFactor,
-						Messages.InvalidAllocationFactorMessage);
+//				Error.showBox(Messages.InvalidAllocationFactor,
+//						Messages.InvalidAllocationFactorMessage);
 				return null;
 			}
 			return val;
 		} catch (Exception e) {
-			Error.showBox(Messages.InvalidNumber, text + " "
-					+ Messages.IsNotValidNumber);
+//			Error.showBox(Messages.InvalidNumber, text + " "
+//					+ Messages.IsNotValidNumber);
 			return null;
 		}
 	}

@@ -52,8 +52,7 @@ public class ProcessEditor extends ModelEditor<Process> implements IEditor {
 			String message = errors.get(0);
 			if (errors.size() > 1)
 				message += " (" + (errors.size() - 1) + " more)";
-			org.openlca.app.util.Error.showBox(
-					Messages.FormulaEvaluationFailed, message);
+			
 		}
 	}
 

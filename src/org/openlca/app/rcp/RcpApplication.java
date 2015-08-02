@@ -1,6 +1,6 @@
 package org.openlca.app.rcp;
-
 import org.eclipse.equinox.app.IApplication;
+
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
@@ -8,7 +8,7 @@ import org.eclipse.ui.PlatformUI;
 
 public class RcpApplication implements IApplication {
 
-	@Override
+	
 	public Object start(final IApplicationContext context) throws Exception {
 		Object result = null;
 		Display display = PlatformUI.createDisplay();
@@ -26,7 +26,7 @@ public class RcpApplication implements IApplication {
 		return result;
 	}
 
-	@Override
+	
 	public void stop() {
 		final IWorkbench workbench = PlatformUI.getWorkbench();
 		if (workbench == null) {

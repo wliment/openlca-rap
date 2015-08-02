@@ -18,7 +18,6 @@ import org.openlca.app.navigation.INavigationElement;
 import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Editors;
-import org.openlca.app.util.InformationPopup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.zeroturnaround.zip.ZipUtil;
@@ -65,8 +64,8 @@ public class DatabaseExportAction extends Action implements INavigationAction {
 			log.trace("delete existing file {}", zip);
 			boolean deleted = zip.delete();
 			if (!deleted) {
-				org.openlca.app.util.Error.showBox(Messages.CouldNotOverwriteFile
-						+ ": " + zip.getName());
+//				org.openlca.app.util.Error.showBox(Messages.CouldNotOverwriteFile
+//						+ ": " + zip.getName());
 				return;
 			}
 		}
@@ -99,7 +98,7 @@ public class DatabaseExportAction extends Action implements INavigationAction {
 	private void updateUI(final File zip, final boolean active) {
 		if (active)
 			Navigator.refresh();
-		InformationPopup.show(Messages.ExportDone, Messages.DatabaseWasExportedToFile
-				+ ": " + zip.getName());
+//		InformationPopup.show(Messages.ExportDone, Messages.DatabaseWasExportedToFile
+//				+ ": " + zip.getName());
 	}
 }

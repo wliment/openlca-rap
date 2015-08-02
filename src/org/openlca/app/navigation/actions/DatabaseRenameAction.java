@@ -64,8 +64,8 @@ public class DatabaseRenameAction extends Action implements INavigationAction {
 		String newName = dialog.getValue();
 		if (!DbUtils.isValidName(newName) || Database.getConfigurations()
 				.nameExists(newName.trim())) {
-			org.openlca.app.util.Error
-					.showBox(Messages.DatabaseRenameError);
+//			org.openlca.app.util.Error
+//					.showBox(Messages.DatabaseRenameError);
 			return;
 		}
 		doRename(newName);

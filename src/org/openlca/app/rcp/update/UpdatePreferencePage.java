@@ -41,7 +41,7 @@ public class UpdatePreferencePage extends FieldEditorPreferencePage implements
 			// run an update check if updating was enabled just now:
 			if (!updatingWasEnabledOnPageCreation) {
 				if (UpdatePreference.isUpdateEnabled()) {
-					new UpdateCheckAndPrepareJob().schedule();
+//					new UpdateCheckAndPrepareJob().schedule();
 				}
 			}
 		}

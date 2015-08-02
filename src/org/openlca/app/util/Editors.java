@@ -92,7 +92,7 @@ public class Editors {
 
 		private IEditorInput input;
 		private String editorId;
-
+		private String fff;
 		public OpenInUIJob(IEditorInput input, String editorId) {
 			super(Messages.OpenEditor);
 			this.input = input;

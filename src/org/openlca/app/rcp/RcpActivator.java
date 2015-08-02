@@ -19,6 +19,7 @@ import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle
+ * org.openlca.app.rcp.RcpApplication
  */
 public class RcpActivator extends AbstractUIPlugin {
 
@@ -59,18 +60,19 @@ public class RcpActivator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		File workspace = Workspace.init();
+//		File workspace = new File("/Users/wliment/openLCA-data-1.4");
 		log.trace("Workspace initialised at {}", workspace);
-		LoggerConfig.setUp();
+//    	LoggerConfig.setUp();
 		WorkbenchLayout.initialize(workspace);
 		log.trace("Start application. Workspace: {}.", Platform.getLocation());
 		log.trace("Bundle {} started", PLUGIN_ID);
 		log.trace("Try init olca-eigen");
-		NativeLibrary.loadFromDir(workspace);
+//		NativeLibrary.loadFromDir(workspace);
 		log.trace("olca-eigen loaded: {}", NativeLibrary.isLoaded());
 		log.trace("initialize HTML folder");
 		HtmlFolder.initialize(RcpActivator.getDefault().getBundle(),
 				"html/base_html.zip");
-		Preferences.init();
+		//Preferences.init();
 	}
 
 	@Override

@@ -25,7 +25,6 @@ import org.openlca.app.db.Cache;
 import org.openlca.app.db.Database;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Actions;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.Labels;
 import org.openlca.app.util.UI;
 import org.openlca.app.util.UncertaintyLabel;
@@ -379,8 +378,8 @@ class ExchangeTable {
 					editor.setDirty(true);
 					editor.getParameterSupport().evaluate();
 				} catch (Exception ex) {
-					Error.showBox(Messages.InvalidFormula, text + " "
-							+ Messages.IsInvalidFormula);
+//					Error.showBox(Messages.InvalidFormula, text + " "
+//							+ Messages.IsInvalidFormula);
 				}
 			}
 		}

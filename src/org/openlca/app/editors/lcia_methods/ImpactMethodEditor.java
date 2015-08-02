@@ -54,8 +54,7 @@ public class ImpactMethodEditor extends ModelEditor<ImpactMethod> implements
 			String message = errors.get(0);
 			if (errors.size() > 1)
 				message += " (" + (errors.size() - 1) + " more)";
-			org.openlca.app.util.Error.showBox(
-					Messages.FormulaEvaluationFailed, message);
+			
 		}
 	}
 

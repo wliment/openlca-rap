@@ -25,7 +25,6 @@ import org.openlca.app.components.FileChooser;
 import org.openlca.app.rcp.RcpActivator;
 import org.openlca.app.rcp.html.HtmlFolder;
 import org.openlca.app.rcp.html.HtmlPage;
-import org.openlca.app.util.Info;
 import org.openlca.app.util.UI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -149,7 +148,6 @@ public class PluginManager extends FormDialog implements HtmlPage {
 			return;
 		Plugin plugin = getPlugin(file, plugins.values());
 		if (plugin == null) {
-			Info.showBox("The file you selected isn't a valid openLCA plugin");
 			return;
 		}
 		App.runWithProgress("Installing " + plugin.getFullDisplayName(),

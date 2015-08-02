@@ -132,8 +132,8 @@ public class DatabaseActivateAction extends Action implements INavigationAction 
 		}
 
 		private void error(String message) {
-			org.openlca.app.util.Error.showBox(Messages.CouldNotOpenDatabase,
-					message);
+//			org.openlca.app.util.Error.showBox(Messages.CouldNotOpenDatabase,
+//					message);
 			closeDatabase();
 		}
 

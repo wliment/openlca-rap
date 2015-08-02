@@ -17,9 +17,7 @@ public class UpdateCheckHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		UpdateCheckAndPrepareJob updateCheckAndPrepareJob = new UpdateCheckAndPrepareJob();
-		updateCheckAndPrepareJob.setForceCheck(true);
-		updateCheckAndPrepareJob.schedule();
+		
 		return null;
 	}
 }

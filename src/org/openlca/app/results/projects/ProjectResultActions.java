@@ -11,7 +11,7 @@ import org.openlca.app.components.FileChooser;
 import org.openlca.app.db.Cache;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Editors;
-import org.openlca.app.util.InformationPopup;
+//import org.openlca.app.util.InformationPopup;
 import org.openlca.core.model.Project;
 import org.openlca.core.results.ProjectResultProvider;
 import org.openlca.io.xls.results.ProjectResultExport;
@@ -71,7 +71,8 @@ public class ProjectResultActions extends EditorActionBarContributor {
 		}, new Runnable() {
 			public void run() {
 				if (!failed)
-					InformationPopup.show(Messages.ExportDone);
+					System.out.println("haha");
+//					InformationPopup.show(Messages.ExportDone);
 			}
 		});
 	}

@@ -6,7 +6,7 @@ import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.Level;
 import org.apache.log4j.spi.LoggingEvent;
 import org.eclipse.ui.PlatformUI;
-import org.openlca.app.util.Error;
+//import org.openlca.app.util.Error;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +43,7 @@ public class PopupAppender extends AppenderSkeleton {
 			try {
 				openPopupCount.incrementAndGet();
 				new PopupTokenWatch().start();
-				Error.showPopup(message);
+//				Error.showPopup(message);
 			} catch (Exception e) {
 				handlePopupError(e);
 			}

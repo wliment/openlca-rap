@@ -16,7 +16,7 @@ import org.openlca.app.navigation.INavigationElement;
 import org.openlca.app.navigation.ModelElement;
 import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
-import org.openlca.app.util.Error;
+//import org.openlca.app.util.Error;
 import org.openlca.app.util.Labels;
 import org.openlca.app.util.Question;
 import org.openlca.core.database.BaseDao;
@@ -91,7 +91,7 @@ public class DeleteModelAction extends Action implements INavigationAction {
 		List<BaseDescriptor> descriptors = search.findUses(descriptor);
 		if (descriptors.isEmpty())
 			return false;
-		Error.showBox(Messages.CannotDelete, Messages.CannotDeleteMessage);
+//		Error.showBox(Messages.CannotDelete, Messages.CannotDeleteMessage);
 		return true;
 	}
 

@@ -6,7 +6,7 @@ import org.openlca.app.Messages;
 import org.openlca.app.db.Database;
 import org.openlca.app.devtools.ScriptEditorInput;
 import org.openlca.app.util.Editors;
-import org.openlca.app.util.Info;
+//import org.openlca.app.util.Info;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,8 +16,8 @@ public class SqlEditor extends FormEditor {
 
 	public static void open() {
 		if (Database.get() == null) {
-			Info.showBox(Messages.NoDatabaseOpened,
-					Messages.NeedOpenDatabase);
+//			Info.showBox(Messages.NoDatabaseOpened,
+//					Messages.NeedOpenDatabase);
 			return;
 		}
 		Editors.open(new ScriptEditorInput("SQL"), ID);

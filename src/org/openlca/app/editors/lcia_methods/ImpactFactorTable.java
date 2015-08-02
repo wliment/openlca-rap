@@ -20,7 +20,6 @@ import org.openlca.app.components.UncertaintyCellEditor;
 import org.openlca.app.db.Database;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Actions;
-import org.openlca.app.util.Error;
 import org.openlca.app.util.UncertaintyLabel;
 import org.openlca.app.util.Viewers;
 import org.openlca.app.util.tables.TableClipboard;
@@ -295,8 +294,7 @@ class ImpactFactorTable {
 					editor.setDirty(true);
 					editor.getParameterSupport().evaluate();
 				} catch (Exception ex) {
-					Error.showBox(Messages.InvalidFormula, text
-							+ " " + Messages.IsInvalidFormula);
+					ex.printStackTrace();
 				}
 			}
 		}

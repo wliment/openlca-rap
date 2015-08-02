@@ -13,7 +13,6 @@ import org.openlca.app.components.FileChooser;
 import org.openlca.app.db.Database;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Editors;
-import org.openlca.app.util.InformationPopup;
 import org.openlca.core.model.Process;
 import org.openlca.core.model.descriptors.Descriptors;
 import org.openlca.core.model.descriptors.ProcessDescriptor;
@@ -75,9 +74,7 @@ public class ProcessToolbar extends EditorActionBarContributor {
 			List<ProcessDescriptor> list = Arrays.asList(
 					Descriptors.toDescriptor(process));
 			ExcelExport export = new ExcelExport(dir, Database.get(), list);
-			App.run(Messages.ExportProcess, export, () -> {
-				InformationPopup.show(Messages.ExportDone);
-			});
+			
 		}
 	}
 

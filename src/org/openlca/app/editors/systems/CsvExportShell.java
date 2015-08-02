@@ -20,7 +20,6 @@ import org.openlca.app.db.Cache;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.util.Controls;
 import org.openlca.app.util.Dialog;
-import org.openlca.app.util.InformationPopup;
 import org.openlca.app.util.UI;
 import org.openlca.core.model.ProductSystem;
 import org.openlca.io.xls.CsvMatrixExport;
@@ -156,9 +155,9 @@ public class CsvExportShell extends Shell {
 		String column = idx >= 0 ? columnSeparators[idx] : columnCombo
 				.getText();
 		data.setColumnSeperator(column);
-		App.run(Messages.ExportMatrix,
-				new CsvMatrixExport(data),
-				() -> InformationPopup.show(Messages.ExportDone));
+//		App.run(Messages.ExportMatrix,
+//				new CsvMatrixExport(data),
+//				() -> InformationPopup.show(Messages.ExportDone));
 		this.dispose();
 	}
 

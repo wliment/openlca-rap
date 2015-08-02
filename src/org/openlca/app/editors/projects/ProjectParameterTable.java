@@ -396,8 +396,8 @@ class ProjectParameterTable {
 				reportSync.valueChanged(redef, variant, d);
 				editor.setDirty(true);
 			} catch (Exception e) {
-				org.openlca.app.util.Error.showBox(Messages.InvalidNumber, text
-						+ " " + Messages.IsNotValidNumber);
+//				org.openlca.app.util.Error.showBox(Messages.InvalidNumber, text
+//						+ " " + Messages.IsNotValidNumber);
 			}
 		}
 	}
