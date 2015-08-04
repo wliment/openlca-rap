@@ -35,7 +35,7 @@ public abstract class AbstractComboViewer<T> extends
 		combo.setDisplayColumnIndex(getDisplayColumn());
 		TableComboViewer viewer = new TableComboViewer(combo);
 		viewer.setContentProvider(ArrayContentProvider.getInstance());
-		viewer.setLabelProvider(getLabelProvider());
+//		viewer.setLabelProvider(getLabelProvider());
 		viewer.setSorter(getSorter());
 		return viewer;
 	}
