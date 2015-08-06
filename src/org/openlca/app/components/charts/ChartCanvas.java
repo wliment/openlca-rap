@@ -1,181 +1,140 @@
 package org.openlca.app.components.charts;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.eclipse.birt.chart.device.IDeviceRenderer;
-import org.eclipse.birt.chart.exception.ChartException;
 import org.eclipse.birt.chart.factory.GeneratedChartState;
 import org.eclipse.birt.chart.factory.Generator;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
 import org.eclipse.birt.chart.util.PluginSettings;
-import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.rap.rwt.RWT;
+import org.eclipse.rap.rwt.service.ResourceManager;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlEvent;
-import org.eclipse.swt.events.PaintEvent;
-import org.eclipse.swt.events.PaintListener;
-import org.eclipse.swt.graphics.Drawable;
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.eclipse.swt.widgets.Label;
 
-/**
- * This is basically the chart canvas from the BIRT RCP tutorial from Qi Liang
- * (see http://www.eclipse.org/articles/article.php?file=Article-
- * BIRTChartEngine/index.html). However, in order to run it in Eclipse 3.6 two
- * lines need to be added: render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT,
- * e.gc); in the paintControl function and
- * render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, new
- * GC(ChartCanvas.this)); in the controlResized function as the SWT GC reference
- * in the SWT renderer is NULL (see
- * http://www.eclipse.org/forums/index.php?t=tree&th=171310&#page_top).
- */
 public class ChartCanvas extends Canvas {
 
-	private Logger log = LoggerFactory.getLogger(getClass());
-	protected IDeviceRenderer render = null;
-	protected Chart chart = null;
-	protected GeneratedChartState state = null;
-	private Image cachedImage = null;
+ private Label chartLabel;
+ private Chart chart;
 
-	/**
-	 * Constructs one canvas containing chart.
-	 * 
-	 * @param parent
-	 *            a composite control which will be the parent of the new
-	 *            instance (cannot be null)
-	 * @param style
-	 *            the style of control to construct
-	 */
-	public ChartCanvas(Composite parent, int style) {
-		super(parent, style);
+ public Chart getChart() {
+   return chart;
+ }
 
-		// initialize the SWT rendering device
-		try {
-			PluginSettings ps = PluginSettings.instance();
-			render = ps.getDevice("dv.SWT");
-		} catch (ChartException ex) {
-			log.error("Could not create chart renderer", ex);
-		}
+ public void setChart( Chart chart ) {
+   this.chart = chart;
+ }
 
-		addPaintListener(new PaintListener() {
+ public ChartCanvas( Composite parent, int style ) {
+   super( parent, style );
+   setLayout( new FillLayout() );
+   chartLabel = new Label( this, SWT.NONE );
+   chartLabel.setToolTipText( "Chart" );
+   chartLabel.setData( RWT.MARKUP_ENABLED, Boolean.TRUE );
+   addControlListener( new SmartControlAdapter() {
 
-			@Override
-			public void paintControl(PaintEvent e) {
+     protected void handleControlResized( ControlEvent event ) {
+       try {
+         updateChart();
+       } catch( Exception e ) {
+         e.printStackTrace();
+       }
+     }
+   } );
+ }
+ 
+ public void updateChart_public(){
+	 updateChart();
+	 
+ }
 
-				Composite co = (Composite) e.getSource();
-				final Rectangle rect = co.getClientArea();
+ private void updateChart() {
+   try {
+     drawChart( chart );
+   } catch( Exception e ) {
+     e.printStackTrace();
+   }
+ }
 
-				render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, e.gc);
+ private void drawChart( Chart chart ) throws Exception {
+   Point size = getSize();
+   if( !isCached( chart, size ) ) {
+     IDeviceRenderer render = null;
+     PluginSettings ps = PluginSettings.instance();
+     render = ps.getDevice( "dv.PNG" );
+     Bounds bounds = BoundsImpl.create( 0, 0, size.x, size.y );
+     int resolution = render.getDisplayServer().getDpiResolution();
+     bounds.scale( 72d / resolution );
+     GeneratedChartState state;
+     Generator gr = Generator.instance();
+     state = gr.build( render.getDisplayServer(),
+                       chart,
+                       bounds,
+                       null,
+                       null,
+                       null );
+     File tmpFile = null;
+     tmpFile = File.createTempFile( "birt" + chart.hashCode(), "_"
+                                                               + size.x
+                                                               + "_"
+                                                               + size.y );
+     render.setProperty( IDeviceRenderer.FILE_IDENTIFIER, tmpFile );
+     gr.render( render, state );
+     String url = getImageURL( tmpFile );
+     chartLabel.setText( "<img src='"+url+"' width='"+size.x +"' height='"+size.y+"'/>");
 
-				if (cachedImage == null) {
-					buildChart();
-					drawToCachedImage(rect);
-				}
-				e.gc.drawImage(cachedImage, 0, 0,
-						cachedImage.getBounds().width,
-						cachedImage.getBounds().height, 0, 0, rect.width,
-						rect.height);
+     //Image img;
+     //InputStream inputStream = null;
+     //try {
+     //  inputStream = new FileInputStream( tmpFile );
+     //  img = Graphics.getImage( tmpFile.getName(), inputStream );
+     //   tmpFile.delete();
+     //} finally {
+     //  if( inputStream != null ) {
+     //    inputStream.close();
+     //  }
+     //}
+     //if( img != null ) {
+     //  chartLabel.setImage( img );
+     //} else {
+     //  chartLabel.setText( "Chart generation failed!" );
+     //}
+   }
+ }
 
-			}
-		});
+ private boolean isCached( Chart chart, Point size ) {
+   // should be implemented by using a useful cache implementation
+   // depending on the use-case it may be enough to just cache images
+   // based on the chart object, if the chart is dynamic you need to
+   // implement another strategy
+   return false;
+ }
 
-		addControlListener(new ControlAdapter() {
+ private String getImageURL(File imageFile) {
+   ResourceManager resourceManager = RWT.getResourceManager();
 
-			@Override
-			public void controlResized(ControlEvent e) {
-				render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, new GC(
-						ChartCanvas.this));
-				buildChart();
-				cachedImage = null;
-			}
-		});
-	}
-
-	/**
-	 * Builds the chart state. This method should be call when data is changed.
-	 */
-	private void buildChart() {
-		if (chart == null)
-			return;
-		Point size = getSize();
-		Bounds bo = BoundsImpl.create(0, 0, size.x, size.y);
-		int resolution = render.getDisplayServer().getDpiResolution();
-		bo.scale(72d / resolution);
-		try {
-			Generator gr = Generator.instance();
-			state = gr.build(render.getDisplayServer(), chart, bo, null);
-		} catch (ChartException ex) {
-			log.error("Could not build chart", ex);
-		}
-	}
-
-	/**
-	 * Draws the chart onto the cached image in the area of the given
-	 * <code>Rectangle</code>.
-	 * 
-	 * @param size
-	 *            the area to draw
-	 */
-	public void drawToCachedImage(Rectangle size) {
-		GC gc = null;
-		try {
-			if (cachedImage != null)
-				cachedImage.dispose();
-			cachedImage = new Image(Display.getCurrent(), size.width,
-					size.height);
-
-			gc = new GC((Drawable) cachedImage);
-			render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, gc);
-
-			Generator gr = Generator.instance();
-
-			gr.render(render, state);
-		} catch (ChartException ex) {
-			log.error("Drawing chart failed", ex);
-		} finally {
-			if (gc != null)
-				gc.dispose();
-		}
-	}
-
-	/**
-	 * Returns the chart which is contained in this canvas.
-	 * 
-	 * @return the chart contained in this canvas.
-	 */
-	public Chart getChart() {
-		return chart;
-	}
-
-	/**
-	 * Sets the chart into this canvas. Note: When the chart is set, the cached
-	 * image will be dopped, but this method doesn't reset the flag
-	 * <code>cachedImage</code>.
-	 * 
-	 * @param chart
-	 *            the chart to set
-	 */
-	public void setChart(Chart chart) {
-		if (cachedImage != null)
-			cachedImage.dispose();
-		cachedImage = null;
-		this.chart = chart;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.swt.widgets.Widget#dispose()
-	 */
-	@Override
-	public void dispose() {
-		if (cachedImage != null)
-			cachedImage.dispose();
-		super.dispose();
-	}
+   String resourceKey = imageFile.getPath();
+   if (!resourceManager.isRegistered(resourceKey)) {
+     try {
+       InputStream inputStream = new FileInputStream(imageFile);
+       try {
+         resourceManager.register(resourceKey, inputStream);
+       } finally {
+         inputStream.close();
+       }
+     } catch (IOException e) {
+     }
+   }
+   return resourceManager.getLocation(resourceKey);
+ }
 }

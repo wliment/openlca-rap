@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.nebula.jface.tablecomboviewer.TableComboViewer;
 //import org.eclipse.nebula.jface.tablecomboviewer.TableComboViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -38,7 +39,7 @@ public class ContributionChartSection {
 	private String selectionName = "";
 
 	private ContributionResultProvider<?> provider;
-//	private AbstractViewer<?, TableComboViewer> itemViewer;
+	private AbstractViewer<?, TableComboViewer> itemViewer;
 	private ContributionChart chart;
 
 	public static ContributionChartSection forFlows(
@@ -85,7 +86,7 @@ public class ContributionChartSection {
 			createFlowViewer(header);
 		else
 			createImpactViewer(header);
-//		itemViewer.selectFirst();
+		itemViewer.selectFirst();
 	}
 
 	private void createFlowViewer(Composite header) {
@@ -94,7 +95,7 @@ public class ContributionChartSection {
 		FlowDescriptor[] flows = set.toArray(new FlowDescriptor[set.size()]);
 		viewer.setInput(flows);
 		viewer.addSelectionChangedListener((selection) -> refresh());
-//		this.itemViewer = viewer;
+		this.itemViewer = viewer;
 	}
 
 	private void createImpactViewer(Composite header) {
@@ -104,14 +105,14 @@ public class ContributionChartSection {
 				.toArray(new ImpactCategoryDescriptor[set.size()]);
 		viewer.setInput(impacts);
 		viewer.addSelectionChangedListener((selection) -> refresh());
-//		this.itemViewer = viewer;
+		this.itemViewer = viewer;
 	}
 
 	private void refresh() {
 		if (chart == null)
 			return;
-//		Object selection = itemViewer.getSelected();
-		Object selection = null;
+	Object selection = itemViewer.getSelected();
+//		Object selection = null;
 
 		String unit = null;
 		ContributionSet<ProcessDescriptor> contributionSet = null;

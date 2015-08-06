@@ -67,7 +67,8 @@ public class RcpActivator extends AbstractUIPlugin {
 		log.trace("Start application. Workspace: {}.", Platform.getLocation());
 		log.trace("Bundle {} started", PLUGIN_ID);
 		log.trace("Try init olca-eigen");
-//		NativeLibrary.loadFromDir(workspace);
+		File  dir = new File("");
+		NativeLibrary.loadFromDir(workspace);
 		log.trace("olca-eigen loaded: {}", NativeLibrary.isLoaded());
 		log.trace("initialize HTML folder");
 		HtmlFolder.initialize(RcpActivator.getDefault().getBundle(),

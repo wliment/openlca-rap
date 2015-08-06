@@ -1,6 +1,16 @@
 package org.openlca.app.components;
 
 import org.eclipse.swt.SWT;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Drawable;
 import org.eclipse.swt.graphics.GC;
@@ -62,14 +72,55 @@ public class ContributionImage {
 		String key = Integer.toString(contributionInt);
 		Image image = imageRegistry.get(key);
 		if (image == null) {
-			image = new Image(display, 60, 15);
-			GC gc = new GC((Drawable) image);
-			RGB color = FaviColor.getForContribution(c);
-			gc.setBackground(Colors.getColor(color));
-			int width = Math.abs(contributionInt);
-			gc.fillRectangle(5, 5, width, 5);
-			gc.dispose();
-			imageRegistry.put(key, image);
+//			image = new Image(display, 60, 15);
+//			GC gc = new GC((Drawable) image);
+//			RGB color = FaviColor.getForContribution(c);
+//			gc.setBackground(Colors.getColor(color));
+//			int width = Math.abs(contributionInt);
+//			gc.fillRectangle(5, 5, width, 5);
+//			gc.dispose();
+//			imageRegistry.put(key, image);
+//			RGB rgb = null;
+//		    public Color(int r, int g, int b) {
+
+			RGB rgb = FaviColor.getForContribution(c);
+
+
+			
+			Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+				  BufferedImage image2 = new BufferedImage( 60, 15, BufferedImage.TYPE_INT_ARGB);
+				  
+				  Graphics2D gr2d = image2.createGraphics();
+				  // draw the image
+//				  gr2d.setColor( new 111,232,123 );
+				  gr2d.setBackground(Color.WHITE);
+				  
+				  gr2d.setColor(new Color(rgb.red,rgb.green,rgb.blue));
+//				  gr2d.drawRect( 5, 5, 25 , 25 );
+					int width = Math.abs(contributionInt);
+
+				  gr2d.fillRect(5, 5, width , 5);
+				  
+				  ByteArrayOutputStream out= new ByteArrayOutputStream();
+					 try {
+						ImageIO.write(image2, "png", out);
+
+						  ByteArrayOutputStream   baos=new   ByteArrayOutputStream();
+					        baos=(ByteArrayOutputStream) out;
+					        ByteArrayInputStream intput = new ByteArrayInputStream(baos.toByteArray());
+							 image = new Image( Display.getCurrent(), intput);
+
+					        
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+
+			   
+		    
+
+				imageRegistry.put(key, image);
 		}
 		return image;
 

@@ -52,9 +52,9 @@ public class FileChooser {
 			String defaultName, int swtFlag) {
 		FileDialog dialog = new FileDialog(shell, swtFlag);
 		dialog.setText(getDialogText(swtFlag));
-		if (extension != null) {
-			dialog.setFilterExtensions(new String[] { extension });
-		}
+//		if (extension != null) {
+//			dialog.setFilterExtensions(new String[] { extension });
+//		}
 		dialog.setFileName(defaultName);
 		return dialog.open();
 	}

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product useFeatures="false" includeLaunchers="false">
+   <plugins>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="com.lowagie.text"/>
+      <plugin id="javax.wsdl"/>
+      <plugin id="javax.xml"/>
+      <plugin id="javax.xml.rpc"/>
+      <plugin id="javax.xml.soap"/>
+      <plugin id="javax.xml.stream"/>
+      <plugin id="olca-app"/>
+      <plugin id="org.apache.commons.codec"/>
+      <plugin id="org.apache.commons.fileupload"/>
+      <plugin id="org.apache.commons.io"/>
+      <plugin id="org.apache.derby.core"/>
+      <plugin id="org.apache.felix.gogo.command"/>
+      <plugin id="org.apache.felix.gogo.runtime"/>
+      <plugin id="org.apache.felix.gogo.shell"/>
+      <plugin id="org.apache.poi"/>
+      <plugin id="org.eclipse.birt"/>
+      <plugin id="org.eclipse.birt.chart.device.extension"/>
+      <plugin id="org.eclipse.birt.chart.device.svg"/>
+      <plugin id="org.eclipse.birt.chart.engine"/>
+      <plugin id="org.eclipse.birt.chart.engine.extension"/>
+      <plugin id="org.eclipse.birt.core"/>
+      <plugin id="org.eclipse.birt.core.script.function"/>
+      <plugin id="org.eclipse.birt.me.prettyprint.hector"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
+      <plugin id="org.eclipse.core.databinding.observable"/>
+      <plugin id="org.eclipse.core.databinding.property"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.emf"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.databinding"/>
+      <plugin id="org.eclipse.emf.databinding.edit"/>
+      <plugin id="org.eclipse.emf.doc"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.change.edit"/>
+      <plugin id="org.eclipse.emf.ecore.edit"/>
+      <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.emf.edit"/>
+      <plugin id="org.eclipse.emf.mapping"/>
+      <plugin id="org.eclipse.emf.mapping.ecore"/>
+      <plugin id="org.eclipse.emf.mapping.ecore.editor"/>
+      <plugin id="org.eclipse.emf.mapping.ecore2ecore"/>
+      <plugin id="org.eclipse.emf.mapping.ecore2xml"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.cm"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.console"/>
+      <plugin id="org.eclipse.equinox.ds"/>
+      <plugin id="org.eclipse.equinox.event"/>
+      <plugin id="org.eclipse.equinox.http.registry"/>
+      <plugin id="org.eclipse.equinox.http.servlet"/>
+      <plugin id="org.eclipse.equinox.http.servletbridge"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.servletbridge"/>
+      <plugin id="org.eclipse.equinox.util"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jdt.junit.runtime"/>
+      <plugin id="org.eclipse.orbit.mongodb"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="org.eclipse.rap.addons.autosuggest"/>
+      <plugin id="org.eclipse.rap.addons.ckeditor"/>
+      <plugin id="org.eclipse.rap.addons.filedialog"/>
+      <plugin id="org.eclipse.rap.addons.fileupload"/>
+      <plugin id="org.eclipse.rap.design.example"/>
+      <plugin id="org.eclipse.rap.draw2d"/>
+      <plugin id="org.eclipse.rap.draw2d.compatibility"/>
+      <plugin id="org.eclipse.rap.filedialog"/>
+      <plugin id="org.eclipse.rap.fileupload"/>
+      <plugin id="org.eclipse.rap.gef"/>
+      <plugin id="org.eclipse.rap.jface"/>
+      <plugin id="org.eclipse.rap.jface.databinding"/>
+      <plugin id="org.eclipse.rap.nebula.jface.gridviewer"/>
+      <plugin id="org.eclipse.rap.nebula.widgets.grid"/>
+      <plugin id="org.eclipse.rap.pde.runtime"/>
+      <plugin id="org.eclipse.rap.rwt"/>
+      <plugin id="org.eclipse.rap.rwt.osgi"/>
+      <plugin id="org.eclipse.rap.rwt.testfixture"/>
+      <plugin id="org.eclipse.rap.ui"/>
+      <plugin id="org.eclipse.rap.ui.cheatsheets"/>
+      <plugin id="org.eclipse.rap.ui.forms"/>
+      <plugin id="org.eclipse.rap.ui.navigator"/>
+      <plugin id="org.eclipse.rap.ui.views"/>
+      <plugin id="org.eclipse.rap.ui.views.log"/>
+      <plugin id="org.eclipse.rap.ui.views.properties.tabbed"/>
+      <plugin id="org.eclipse.rap.ui.workbench"/>
+      <plugin id="org.eclipse.rap.zest.core"/>
+      <plugin id="org.eclipse.rap.zest.layouts"/>
+      <plugin id="org.hamcrest.core"/>
+      <plugin id="org.junit"/>
+      <plugin id="org.mozilla.javascript"/>
+      <plugin id="org.w3c.css.sac"/>
+      <plugin id="org.w3c.sac"/>
+   </plugins>
+
+   <configurations>
+      <plugin id="com.ibm.icu" autoStart="true" startLevel="0" />
+      <plugin id="com.lowagie.text" autoStart="true" startLevel="0" />
+      <plugin id="javax.wsdl" autoStart="true" startLevel="0" />
+      <plugin id="javax.xml" autoStart="true" startLevel="0" />
+      <plugin id="javax.xml.rpc" autoStart="true" startLevel="0" />
+      <plugin id="javax.xml.soap" autoStart="true" startLevel="0" />
+      <plugin id="javax.xml.stream" autoStart="true" startLevel="0" />
+      <plugin id="olca-app" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.commons.codec" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.commons.fileupload" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.commons.io" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.derby.core" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.gogo.command" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.gogo.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.gogo.shell" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.poi" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt.chart.device.extension" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt.chart.device.svg" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt.chart.engine" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt.chart.engine.extension" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt.core" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt.core.script.function" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.birt.me.prettyprint.hector" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.commands" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.contenttype" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.databinding" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.databinding.beans" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.databinding.observable" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.databinding.property" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.expressions" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.jobs" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.common" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.databinding" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.databinding.edit" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.doc" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.ecore" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.ecore.change" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.ecore.change.edit" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.ecore.edit" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.ecore.xmi" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.edit" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.mapping" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.mapping.ecore" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.mapping.ecore.editor" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.mapping.ecore2ecore" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.mapping.ecore2xml" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.app" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.cm" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.console" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.http.registry" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.http.servlet" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.http.servletbridge" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.preferences" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.registry" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.servletbridge" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.util" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.help" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.jdt.junit.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.orbit.mongodb" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.addons.autosuggest" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.addons.ckeditor" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.addons.filedialog" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.addons.fileupload" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.design.example" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.draw2d" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.draw2d.compatibility" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.filedialog" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.fileupload" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.gef" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.jface" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.jface.databinding" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.nebula.jface.gridviewer" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.nebula.widgets.grid" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.pde.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.rwt" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.rwt.osgi" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.rwt.testfixture" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui.cheatsheets" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui.forms" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui.navigator" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui.views" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui.views.log" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui.views.properties.tabbed" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.ui.workbench" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.zest.core" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.rap.zest.layouts" autoStart="true" startLevel="0" />
+      <plugin id="org.hamcrest.core" autoStart="true" startLevel="0" />
+      <plugin id="org.junit" autoStart="true" startLevel="0" />
+      <plugin id="org.mozilla.javascript" autoStart="true" startLevel="0" />
+      <plugin id="org.w3c.css.sac" autoStart="true" startLevel="0" />
+      <plugin id="org.w3c.sac" autoStart="true" startLevel="0" />
+   </configurations>
+
+   <warConfiguration webXml="/olca-app/WEB-INF/web.xml" launchIni="/olca-app/WEB-INF/launch.ini">
+   <libraries>
+      <library path="org.eclipse.equinox.servletbridge_1.3.0.v20140430-1556.jar" fromTarget="true"/>
+   </libraries>
+   </warConfiguration>
+</product>
