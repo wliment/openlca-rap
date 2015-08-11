@@ -61,16 +61,16 @@ public class RcpActivator extends AbstractUIPlugin {
 		plugin = this;
 		File workspace = Workspace.init();
 //		File workspace = new File("/Users/wliment/openLCA-data-1.4");
-		log.trace("Workspace initialised at {}", workspace);
+//		log.trace("Workspace initialised at {}", workspace);
 //    	LoggerConfig.setUp();
 		WorkbenchLayout.initialize(workspace);
-		log.trace("Start application. Workspace: {}.", Platform.getLocation());
-		log.trace("Bundle {} started", PLUGIN_ID);
-		log.trace("Try init olca-eigen");
-		File  dir = new File("");
+//		log.trace("Start application. Workspace: {}.", Platform.getLocation());
+//		log.trace("Bundle {} started", PLUGIN_ID);
+//		log.trace("Try init olca-eigen");
+//		File  dir = new File("");
 		NativeLibrary.loadFromDir(workspace);
-		log.trace("olca-eigen loaded: {}", NativeLibrary.isLoaded());
-		log.trace("initialize HTML folder");
+//		log.trace("olca-eigen loaded: {}", NativeLibrary.isLoaded());
+//		log.trace("initialize HTML folder");
 		HtmlFolder.initialize(RcpActivator.getDefault().getBundle(),
 				"html/base_html.zip");
 		//Preferences.init();
@@ -78,13 +78,13 @@ public class RcpActivator extends AbstractUIPlugin {
 
 	@Override
 	public void stop(final BundleContext context) throws Exception {
-		log.trace("Stop bundle {}", PLUGIN_ID);
+//		log.trace("Stop bundle {}", PLUGIN_ID);
 		Console.dispose();
 		try {
-			log.info("close database");
+//			log.info("close database");
 			Database.close();
 		} catch (Exception e) {
-			log.error("Failed to close database", e);
+//			log.error("Failed to close database", e);
 		}
 		plugin = null;
 		super.stop(context);

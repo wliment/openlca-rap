@@ -90,8 +90,9 @@ public class QuickResultInfoPage extends FormPage {
 	}
 
 	private void tryExport() {
-		final File exportFile = FileChooser.forExport("*.xlsx",
-				"quick_result.xlsx");
+//		final File exportFile = FileChooser.forExport("*.xlsx",
+//				"quick_result.xlsx");
+		final File exportFile = new File("/tmp/123123.xlsx");
 		if (exportFile == null)
 			return;
 		QuickResultExport export = new QuickResultExport(

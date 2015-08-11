@@ -14,13 +14,13 @@
       <param-value>false</param-value>      
     </init-param>
     
-    <!-- Enable multi-language support for the extension registry -->
+    <!-- Enable multi-language support for the extension registry   -registryMultiLanguage -->
     <!-- the OSGi console is useful for trouble shooting but will fill up your 
          appserver log quickly, so deactivate on production use. Uncomment
          the -console parameter to enabled OSGi console access.  -->
     <init-param>
       <param-name>commandline</param-name>
-      <param-value>-registryMultiLanguage <!-- -console --></param-value>     
+      <param-value>-console -nl en </param-value>     
     </init-param>
 
     <load-on-startup>1</load-on-startup>    

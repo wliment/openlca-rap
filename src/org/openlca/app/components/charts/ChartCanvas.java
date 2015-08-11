@@ -67,6 +67,7 @@ public class ChartCanvas extends Canvas {
  }
 
  private void drawChart( Chart chart ) throws Exception {
+	 if(chart == null) return;
    Point size = getSize();
    if( !isCached( chart, size ) ) {
      IDeviceRenderer render = null;

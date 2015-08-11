@@ -48,7 +48,9 @@ public class ProjectResultActions extends EditorActionBarContributor {
 		}
 		Project project = editor.getProject();
 		ProjectResultProvider result = editor.getResult();
-		File file = FileChooser.forExport(".xlsx", project.getName() + ".xlsx");
+//		File file = FileChooser.forExport(".xlsx", project.getName() + ".xlsx");
+		//服务器生成文件返回给浏览器
+		File file = new File("/tmp/21.xlsx");
 		if (file == null)
 			return;
 		ProjectResultExport export = new ProjectResultExport(project, file,

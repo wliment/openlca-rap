@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product useFeatures="false" includeLaunchers="false">
+<product name="openlca-rap" uid="13899896441" version="1.0.0" useFeatures="false" includeLaunchers="false">
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="com.lowagie.text"/>
+      <plugin id="javax.servlet"/>
       <plugin id="javax.wsdl"/>
       <plugin id="javax.xml"/>
       <plugin id="javax.xml.rpc"/>
@@ -108,6 +109,7 @@
    <configurations>
       <plugin id="com.ibm.icu" autoStart="true" startLevel="0" />
       <plugin id="com.lowagie.text" autoStart="true" startLevel="0" />
+      <plugin id="javax.servlet" autoStart="true" startLevel="0" />
       <plugin id="javax.wsdl" autoStart="true" startLevel="0" />
       <plugin id="javax.xml" autoStart="true" startLevel="0" />
       <plugin id="javax.xml.rpc" autoStart="true" startLevel="0" />
