@@ -1,11 +1,15 @@
 package org.openlca.app.rcp;
 
+import org.eclipse.rap.rwt.RWT;
+import org.eclipse.rap.rwt.service.ServiceHandler;
+import org.eclipse.rap.rwt.service.ServiceManager;
 import org.eclipse.ui.application.IWorkbenchConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.openlca.app.logging.Console;
 import org.openlca.app.logging.LoggerPreference;
+import org.openlca.app.util.DownloadServiceHandler;
 
 public class RcpWorkbenchAdvisor extends WorkbenchAdvisor {
 
@@ -29,6 +33,11 @@ public class RcpWorkbenchAdvisor extends WorkbenchAdvisor {
 	public void initialize(final IWorkbenchConfigurer configurer) {
 		super.initialize(configurer);
 		configurer.setSaveAndRestore(false);
+		
+//		ServiceManager manager = RWT.getServiceManager();
+//		ServiceHandler handler = new DownloadServiceHandler();
+//		manager.registerServiceHandler( "downloadServiceHandler", handler );
+	
 		if (LoggerPreference.getShowConsole()) {
 			Console.show();
 		}

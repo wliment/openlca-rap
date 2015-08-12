@@ -1,7 +1,10 @@
 package org.openlca.app.results.quick;
 
 import java.io.File;
+import java.util.Date;
 
+import org.eclipse.rap.rwt.RWT;
+import org.eclipse.rap.rwt.client.service.UrlLauncher;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -17,6 +20,7 @@ import org.openlca.app.db.Cache;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.app.results.ContributionChartSection;
 import org.openlca.app.util.Controls;
+import org.openlca.app.util.DownloadServiceHandler;
 import org.openlca.app.util.Labels;
 import org.openlca.app.util.UI;
 import org.openlca.core.math.CalculationSetup;
@@ -25,11 +29,15 @@ import org.openlca.core.model.descriptors.ImpactMethodDescriptor;
 import org.openlca.core.model.descriptors.NwSetDescriptor;
 import org.openlca.io.xls.results.QuickResultExport;
 
+import com.ibm.icu.text.SimpleDateFormat;
+
 public class QuickResultInfoPage extends FormPage {
 
 	private QuickResultEditor editor;
 	private FormToolkit toolkit;
-
+	
+	public	static	  SimpleDateFormat formatter = new SimpleDateFormat("MMddHHmmssSSSS");
+	public static String temp_path = System.getProperty("java.io.tmpdir");
 	public QuickResultInfoPage(QuickResultEditor editor) {
 		super(editor, "QuickResultInfoPage", Messages.GeneralInformation);
 		this.editor = editor;
@@ -89,10 +97,23 @@ public class QuickResultInfoPage extends FormPage {
 		Controls.onSelect(button, (e) -> tryExport());
 	}
 
+	
+	private String createDownloadUrl( String filename ) {
+		  StringBuilder url = new StringBuilder();
+		  url.append( RWT.getServiceManager().getServiceHandlerUrl( "downloadServiceHandler" ) );
+		  url.append( '&' ).append( "filename" ).append( '=' ).append( filename );
+		  return url.toString();
+		}
+	
+	
+
 	private void tryExport() {
 //		final File exportFile = FileChooser.forExport("*.xlsx",
 //				"quick_result.xlsx");
-		final File exportFile = new File("/tmp/123123.xlsx");
+		Date currentTime = new Date();
+		String dateString = formatter.format(currentTime);		
+		String temp_filename="result_"+dateString+".xlsx";
+		final File exportFile = new File(this.temp_path+temp_filename);
 		if (exportFile == null)
 			return;
 		QuickResultExport export = new QuickResultExport(
@@ -102,6 +123,12 @@ public class QuickResultInfoPage extends FormPage {
 			@Override
 			public void run() {
 				if (export.doneWithSuccess()) {
+//					DownloadServiceHandler service = new DownloadServiceHandler();
+//				        service.register();
+
+				        UrlLauncher launcher = RWT.getClient().getService(UrlLauncher.class);
+				        launcher.openURL(createDownloadUrl(temp_filename));
+				       
 //					InformationPopup.show(Messages.ExportDone);
 				}
 			}

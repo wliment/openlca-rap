@@ -14,6 +14,7 @@ import org.openlca.app.db.Database;
 import org.openlca.app.logging.Console;
 import org.openlca.app.logging.LoggerConfig;
 import org.openlca.app.rcp.html.HtmlFolder;
+import org.openlca.app.util.DownloadServiceHandler;
 import org.openlca.eigen.NativeLibrary;
 import org.osgi.framework.BundleContext;
 
@@ -71,6 +72,8 @@ public class RcpActivator extends AbstractUIPlugin {
 		NativeLibrary.loadFromDir(workspace);
 //		log.trace("olca-eigen loaded: {}", NativeLibrary.isLoaded());
 //		log.trace("initialize HTML folder");
+		
+//		
 		HtmlFolder.initialize(RcpActivator.getDefault().getBundle(),
 				"html/base_html.zip");
 		//Preferences.init();
