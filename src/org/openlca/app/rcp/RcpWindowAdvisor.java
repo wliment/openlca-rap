@@ -1,6 +1,8 @@
 package org.openlca.app.rcp;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
@@ -28,18 +30,22 @@ public class RcpWindowAdvisor extends WorkbenchWindowAdvisor {
 	@Override
 	public void preWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-		configurer.setInitialSize(new Point(1280, 800));
-		configurer.setShowCoolBar(true);
+//		configurer.setInitialSize(new Point(1280, 800));
+//		configurer.setShowCoolBar(true);
 		configurer.setShowStatusLine(true);
 		configurer.setShowProgressIndicator(true);
 		configurer.setShowMenuBar(true);
 		configurer.setTitle(Config.APPLICATION_NAME + " " + Config.VERSION);
+		  getWindowConfigurer().setShellStyle( SWT.NO_TRIM );
+//		   getWindowConfigurer().setShowMenuBar( false );
 	}
 
 	@Override
 	public void postWindowOpen() {
 		if (Config.isBrowserEnabled())
 			StartPage.open();
+		 Shell shell = getWindowConfigurer().getWindow().getShell();
+		   shell.setMaximized( true );
 	}
 
 	@Override
