@@ -36,6 +36,7 @@ import org.openlca.app.editors.graphical.command.CommandFactory;
 import org.openlca.app.editors.graphical.layout.GraphAnimation;
 import org.openlca.app.editors.graphical.model.ProcessExpander.Side;
 import org.openlca.app.rcp.ImageType;
+import org.openlca.app.util.Colors;
 import org.openlca.app.util.Labels;
 import org.openlca.core.model.ProcessType;
 
@@ -46,8 +47,8 @@ class ProcessFigure extends Figure {
 	static final int MARGIN_HEIGHT = 2;
 	static final int MARGIN_WIDTH = 4;
 	private static final int TEXT_HEIGHT = 16;
-	private static final Color LINE_COLOR = ColorConstants.gray();
-	private static final Color TEXT_COLOR = ColorConstants.black();
+	private static final Color LINE_COLOR = Colors.getGray();
+	private static final Color TEXT_COLOR = Colors.getBlack();
 
 	private ProcessNode node;
 	private ProcessExpander leftExpander;
@@ -137,7 +138,9 @@ class ProcessFigure extends Figure {
 	@Override
 	protected void paintFigure(Graphics graphics) {
 		graphics.pushState();
-		graphics.setBackgroundColor(ColorConstants.white());
+//		graphics.setBackgroundColor(ColorConstants.white());
+		graphics.setBackgroundColor(Colors.getWhite());
+
 		graphics.fillRectangle(new Rectangle(getLocation(), getSize()));
 		paintTop(graphics);
 		if (!node.isMinimized() || GraphAnimation.isRunning())
@@ -148,14 +151,14 @@ class ProcessFigure extends Figure {
 
 	private void paintBorder() {
 		if (node.getProcess().getProcessType() == ProcessType.LCI_RESULT) {
-			LineBorder outer = new LineBorder(LINE_COLOR, 1);
-			LineBorder innerInner = new LineBorder(LINE_COLOR, 1);
-			LineBorder innerOuter = new LineBorder(ColorConstants.white(), 1);
+			LineBorder outer = new LineBorder(Colors.getGray(), 1);
+			LineBorder innerInner = new LineBorder(Colors.getGray(), 1);
+			LineBorder innerOuter = new LineBorder(Colors.getWhite(), 1);
 			CompoundBorder inner = new CompoundBorder(innerOuter, innerInner);
 			CompoundBorder border = new CompoundBorder(outer, inner);
 			setBorder(border);
 		} else {
-			LineBorder border = new LineBorder(LINE_COLOR, 1);
+			LineBorder border = new LineBorder(Colors.getGray(), 1);
 			setBorder(border);
 		}
 	}
@@ -176,10 +179,14 @@ class ProcessFigure extends Figure {
 		for (int i = 0; i < width - 20; i++)
 			graphics.drawImage(file, new Point(x + i, y));
 
-		graphics.setForegroundColor(LINE_COLOR);
+//		graphics.setForegroundColor(LINE_COLOR);
+		graphics.setForegroundColor(Colors.getBlack());
+
 		graphics.drawLine(new Point(x, y + MINIMUM_HEIGHT), new Point(x + width
 				- 1, y + MINIMUM_HEIGHT));
-		graphics.setForegroundColor(TEXT_COLOR);
+//		graphics.setForegroundColor(TEXT_COLOR);
+		graphics.setForegroundColor(Colors.getBlack());
+
 	}
 
 	private void paintTable(Graphics graphics) {
@@ -201,7 +208,7 @@ class ProcessFigure extends Figure {
 				+ MINIMUM_HEIGHT + MARGIN_HEIGHT));
 		graphics.drawText(Messages.Outputs, new Point(x + 2 * width / 3, y
 				+ MINIMUM_HEIGHT + MARGIN_HEIGHT));
-		graphics.setForegroundColor(ColorConstants.black());
+		graphics.setForegroundColor(Colors.getBlack());
 	}
 
 	@Override

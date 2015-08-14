@@ -29,8 +29,8 @@ public class ProductSystemFigure extends Figure {
 	private Font infoFont;
 
 	public ProductSystemFigure(ProductSystemNode node) {
-		setForegroundColor(ColorConstants.black());
-		setBorder(new LineBorder(1));
+		setForegroundColor(Colors.getBlack());
+		setBorder(new LineBorder(Colors.getBlack(),1));
 		productSystemNode = node;
 		addMouseListener(new SelectionChange());
 	}

@@ -15,6 +15,7 @@ import org.eclipse.gef.requests.GroupRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.openlca.app.editors.graphical.ProductSystemGraphEditor;
 import org.openlca.app.editors.graphical.command.CommandFactory;
+import org.openlca.app.util.Colors;
 
 class ConnectionLinkPart extends AbstractConnectionEditPart {
 
@@ -27,7 +28,7 @@ class ConnectionLinkPart extends AbstractConnectionEditPart {
 	@Override
 	protected IFigure createFigure() {
 		PolylineConnection figure = new PolylineConnection();
-		figure.setForegroundColor(ConnectionLink.COLOR);
+		figure.setForegroundColor(Colors.getGray());
 		figure.setConnectionRouter(getConnectionRouter());
 		figure.setTargetDecoration(new PolygonDecoration());
 		figure.setVisible(isVisible());
@@ -118,10 +119,15 @@ class ConnectionLinkPart extends AbstractConnectionEditPart {
 			PolylineConnection figure = (PolylineConnection) getFigure();
 			if (value != EditPart.SELECTED_NONE) {
 				figure.setLineWidth(2);
-				figure.setForegroundColor(ConnectionLink.HIGHLIGHT_COLOR);
+//				figure.setForegroundColor(ConnectionLink.HIGHLIGHT_COLOR);
+				figure.setForegroundColor(Colors.getLinkBlue());
+
+				
 			} else {
 				figure.setLineWidth(1);
-				figure.setForegroundColor(ConnectionLink.COLOR);
+//				figure.setForegroundColor(ConnectionLink.COLOR);
+				figure.setForegroundColor(Colors.getGray());
+
 			}
 			super.setSelected(value);
 		}

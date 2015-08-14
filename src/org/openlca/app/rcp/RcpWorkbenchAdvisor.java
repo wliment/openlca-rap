@@ -33,10 +33,7 @@ public class RcpWorkbenchAdvisor extends WorkbenchAdvisor {
 	public void initialize(final IWorkbenchConfigurer configurer) {
 		super.initialize(configurer);
 		configurer.setSaveAndRestore(false);
-		
-//		ServiceManager manager = RWT.getServiceManager();
-//		ServiceHandler handler = new DownloadServiceHandler();
-//		manager.registerServiceHandler( "downloadServiceHandler", handler );
+	
 	
 		if (LoggerPreference.getShowConsole()) {
 			Console.show();

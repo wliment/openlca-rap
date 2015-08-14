@@ -14,6 +14,7 @@ import org.openlca.app.editors.graphical.command.CreateLinkCommand;
 import org.openlca.app.editors.graphical.model.ConnectionLink;
 import org.openlca.app.editors.graphical.model.ExchangeNode;
 import org.openlca.app.editors.graphical.model.ProcessNode;
+import org.openlca.app.util.Colors;
 
 public class ProcessLinkCreatePolicy extends GraphicalNodeEditPolicy {
 
@@ -22,7 +23,7 @@ public class ProcessLinkCreatePolicy extends GraphicalNodeEditPolicy {
 	@Override
 	protected Connection createDummyConnection(Request req) {
 		connection = (PolylineConnection) super.createDummyConnection(req);
-		connection.setForegroundColor(ConnectionLink.COLOR);
+		connection.setForegroundColor(Colors.getGray());
 		if (req instanceof CreateConnectionRequest) {
 			CreateLinkCommand command = (CreateLinkCommand) ((CreateConnectionRequest) req)
 					.getStartCommand();

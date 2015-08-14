@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -22,6 +23,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.openlca.app.Messages;
@@ -97,7 +99,7 @@ public class FileImportPage extends WizardPage {
 		// create button to open directory dialog
 		final Button chooseDirectoryButton = new Button(
 				chooseDirectoryComposite, SWT.NONE);
-		chooseDirectoryButton.setText(Messages.ChooseDirectory);
+		chooseDirectoryButton.setText("choose file");
 		chooseDirectoryButton.addSelectionListener(new DirectorySelection());
 
 		new Label(body, SWT.SEPARATOR | SWT.HORIZONTAL)
@@ -120,17 +122,17 @@ public class FileImportPage extends WizardPage {
 		// create tree viewer for selecting a sub directory
 		directoryViewer = new TreeViewer(chooseFileComposite, SWT.BORDER
 				| SWT.SINGLE);
-		final GridData gddv = new GridData(SWT.FILL, SWT.FILL, true, true);
-		directoryViewer.getTree().setLayoutData(gddv);
-		directoryViewer.setContentProvider(new DirectoryContentProvider());
-		directoryViewer.setLabelProvider(new FileLabelProvider());
-		directoryViewer.addSelectionChangedListener((e) -> {
-			if (!e.getSelection().isEmpty()) {
-				IStructuredSelection selection = (IStructuredSelection) e
-						.getSelection();
-				fileViewer.setInput(selection.getFirstElement());
-			}
-		});
+//		final GridData gddv = new GridData(SWT.FILL, SWT.FILL, true, true);
+//		directoryViewer.getTree().setLayoutData(gddv);
+//		directoryViewer.setContentProvider(new DirectoryContentProvider());
+//		directoryViewer.setLabelProvider(new FileLabelProvider());
+//		directoryViewer.addSelectionChangedListener((e) -> {
+//			if (!e.getSelection().isEmpty()) {
+//				IStructuredSelection selection = (IStructuredSelection) e
+//						.getSelection();
+//				fileViewer.setInput(selection.getFirstElement());
+//			}
+//		});
 
 		// create table viewer to select a file from a selected sub directory
 		fileViewer = new TableViewer(chooseFileComposite, SWT.BORDER
@@ -313,17 +315,24 @@ public class FileImportPage extends WizardPage {
 
 		@Override
 		public void widgetSelected(final SelectionEvent e) {
-			DirectoryDialog dialog = new DirectoryDialog(UI.shell());
-			if (lastDir != null)
-				dialog.setFilterPath(lastDir.getAbsolutePath());
-			String directoryPath = dialog.open();
-			if (directoryPath != null) {
-				lastDir = new File(directoryPath);
-				directoryText.setText(directoryPath);
-				Preferences.set(Preferences.LAST_IMPORT_FOLDER, directoryPath);
-				directoryViewer.setInput(lastDir);
-				fileViewer.setInput(lastDir);
-			}
+//			InputDialog dialog = new InputDialog(UI.shell(), "choose file ", "choose file ", "", null);
+			FileDialog dialog  = new FileDialog(UI.shell());
+			dialog.open();
+			System.out.println(dialog.getFileName());
+			fileViewer.setInput(dialog.getFileNames()[0]);
+//			directoryText.setText(dialog.getValue());
+
+//			DirectoryDialog dialog = new DirectoryDialog(UI.shell());
+//			if (lastDir != null)
+//				dialog.setFilterPath(lastDir.getAbsolutePath());
+//			String directoryPath = dialog.open();
+//			if (directoryPath != null) {
+//				lastDir = new File(directoryPath);
+//				directoryText.setText(directoryPath);
+//				Preferences.set(Preferences.LAST_IMPORT_FOLDER, directoryPath);
+//				directoryViewer.setInput(lastDir);
+//				fileViewer.setInput(lastDir);
+//			}
 		}
 	}
 

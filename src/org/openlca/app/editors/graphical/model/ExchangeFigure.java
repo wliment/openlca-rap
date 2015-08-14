@@ -9,6 +9,7 @@ import org.eclipse.swt.graphics.Color;
 import org.openlca.app.Messages;
 import org.openlca.app.editors.graphical.layout.GraphAnimation;
 import org.openlca.app.rcp.ImageType;
+import org.openlca.app.util.Colors;
 import org.openlca.app.util.Labels;
 import org.openlca.core.model.Exchange;
 import org.openlca.core.model.FlowType;
@@ -26,7 +27,7 @@ class ExchangeFigure extends Label {
 		if (node.isDummy())
 			return;
 		Exchange exchange = node.getExchange();
-		setBorder(new LineBorder(ColorConstants.white(), 1));
+		setBorder(new LineBorder(Colors.getWhite(), 1));
 		setForegroundColor(exchange.isAvoidedProduct() ? BACKGROUND_COLOR
 				: TEXT_COLOR);
 		setBackgroundColor(BACKGROUND_COLOR);

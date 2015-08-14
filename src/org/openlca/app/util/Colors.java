@@ -26,7 +26,13 @@ public class Colors {
 		display = PlatformUI.getWorkbench().getDisplay();
 		PlatformUI.getWorkbench().addWorkbenchListener(new ShutDown());
 	}
+	public static void process_display(){
+//		
+//		 if(Colors.display.isDisposed()){
+			Colors.display = Display.getCurrent();
+//		 }
 
+	}
 	public static Color getErrorColor() {
 		RGB rgb = new RGB(255, 180, 180);
 		return getColor(rgb);
@@ -47,14 +53,18 @@ public class Colors {
 	}
 
 	public static Color getWhite() {
+		process_display();
 		return display.getSystemColor(SWT.COLOR_WHITE);
 	}
 
 	public static Color getDarkGray() {
+		process_display();
+
 		return display.getSystemColor(SWT.COLOR_DARK_GRAY);
 	}
 
 	public static Color getLinkBlue() {
+		
 		return getColor(25, 76, 127);
 	}
 
@@ -63,6 +73,8 @@ public class Colors {
 	}
 
 	public static Color getBlack() {
+		process_display();
+
 		return display.getSystemColor(SWT.COLOR_BLACK);
 	}
 

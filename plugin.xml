@@ -5,7 +5,7 @@
          id="openlca.entrypoints"
          point="org.eclipse.rap.ui.entrypoint">
       <entrypoint id="openlca.entrypoint"
-      		path="/openlca"
+      		path="/"
             applicationId="org.openlca.app.Application">
       </entrypoint>
    </extension>

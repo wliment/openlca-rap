@@ -34,7 +34,8 @@ public class ProductSystemEditor extends ModelEditor<ProductSystem> implements
 			GraphicalEditorInput gInput = new GraphicalEditorInput(descriptor);
 			int gIdx = addPage(new ProductSystemGraphEditor(this), gInput);
 			setPageText(gIdx, Messages.ModelGraph);
-			if (FeatureFlag.EXPERIMENTAL_VISUALISATIONS.isEnabled()) {
+//			if (FeatureFlag.EXPERIMENTAL_VISUALISATIONS.isEnabled()) {
+			if(false){
 				addPage(new StatisticsPage(this));
 				addPage(new HtmlGraph(this, getModel()));
 			}

@@ -188,7 +188,7 @@ public class ProductSystemGraphEditor extends GraphicalEditor {
 	@Override
 	protected void initializeGraphicalViewer() {
 		configurator.initializeGraphicalViewer();
-		configurator.configureZoomManager();
+//		configurator.configureZoomManager();
 	}
 
 	@Override

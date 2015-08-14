@@ -10,7 +10,7 @@ import org.openlca.core.model.ProcessLink;
 public class ConnectionLink {
 
 	public static Color COLOR = ColorConstants.gray();
-	public static Color HIGHLIGHT_COLOR = ColorConstants.blue();
+	public static Color HIGHLIGHT_COLOR = ColorConstants.blue(); 
 
 	private Connection figure;
 	private ProcessLink processLink;
