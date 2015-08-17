@@ -65,7 +65,7 @@ class ProcessFigure extends Figure {
 	private void initializeFigure() {
 		setToolTip(new Label(Labels.processType(node.getProcess()
 				.getProcessType()) + ": " + node.getName()));
-		setForegroundColor(TEXT_COLOR);
+		setForegroundColor(Colors.getBlack());
 		setBounds(new Rectangle(0, 0, 0, 0));
 		setSize(calculateSize());
 
@@ -190,7 +190,7 @@ class ProcessFigure extends Figure {
 	}
 
 	private void paintTable(Graphics graphics) {
-		graphics.setForegroundColor(LINE_COLOR);
+		graphics.setForegroundColor(Colors.getGray());
 		int margin = 5;
 		int width = getSize().width;
 		int height = getSize().height;
@@ -203,7 +203,7 @@ class ProcessFigure extends Figure {
 			graphics.drawLine(new Point(x + width / 2, y + MINIMUM_HEIGHT
 					+ margin), new Point(x + width / 2, y + height - margin));
 
-		graphics.setForegroundColor(TEXT_COLOR);
+		graphics.setForegroundColor(Colors.getBlack());
 		graphics.drawText(Messages.Inputs, new Point(x + width / 6, y
 				+ MINIMUM_HEIGHT + MARGIN_HEIGHT));
 		graphics.drawText(Messages.Outputs, new Point(x + 2 * width / 3, y
