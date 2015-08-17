@@ -67,7 +67,7 @@ public class ChartViewer extends Composite implements PaintListener,
 		super(parent, SWT.NO_BACKGROUND);
 		try {
 			final PluginSettings ps = PluginSettings.instance();
-			renderer = ps.getDevice("dv.SWT");
+			renderer = ps.getDevice("dv.PNG");
 			renderer.setProperty(IDeviceRenderer.UPDATE_NOTIFIER, this);
 		} catch (final ChartException pex) {
 			log.error("Initializing chart viewer failed", pex);
@@ -127,9 +127,9 @@ public class ChartViewer extends Composite implements PaintListener,
 		setMenu(treeMenu);
 		treeManager.add(new SaveImageAction());
 		final Rectangle rectangle = this.getClientArea();
-//		final Image chartImage = new Image(this.getDisplay(), rectangle);
-//		final GC gcImage = new GC(chartImage);
-//		renderer.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, gcImage);
+		final Image chartImage = new Image(this.getDisplay(), rectangle);
+		final GC gcImage = new GC(chartImage);
+		renderer.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, gcImage);
 		final Bounds bounds = BoundsImpl.create(0, 0, rectangle.width,
 				rectangle.height);
 		bounds.scale(72d / renderer.getDisplayServer().getDpiResolution());
@@ -147,8 +147,8 @@ public class ChartViewer extends Composite implements PaintListener,
 			// render chart
 			generator.render(renderer, state);
 			final GC gc = e.gc;
-//			gc.drawImage(chartImage, rectangle.x, rectangle.y);
-//			image = chartImage;
+			gc.drawImage(chartImage, rectangle.x, rectangle.y);
+			image = chartImage;
 		} catch (final ChartException gex) {
 			log.error("Rendering chart failed", gex);
 
@@ -219,9 +219,9 @@ public class ChartViewer extends Composite implements PaintListener,
 			loader.data = new ImageData[] { image.getImageData() };
 			final FileDialog dialog = new FileDialog(UI.shell(), SWT.SAVE);
 			dialog.setText(Messages.SaveAsImage);
-//			dialog.setFileName("chart.png");
-//			dialog.setFilterExtensions(new String[] { "*.png" });
-//			dialog.setFilterNames(new String[] { "*.png (Portable Network Graphics (PNG)" });
+			dialog.setFileName("chart.png");
+			dialog.setFilterExtensions(new String[] { "*.png" });
+			dialog.setFilterNames(new String[] { "*.png (Portable Network Graphics (PNG)" });
 			final String fileName = dialog.open();
 			if (fileName != null && fileName.length() > 0) {
 				final File file = new File(fileName);
