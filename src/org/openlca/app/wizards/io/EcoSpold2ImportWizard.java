@@ -15,6 +15,7 @@ import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.core.database.IDatabase;
 import org.openlca.io.ecospold2.input.EcoSpold2Import;
+import org.openlca.io.ecospold2.input.EcoSpold2Import_rap;
 import org.openlca.io.ecospold2.input.ImportConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +41,7 @@ public class EcoSpold2ImportWizard extends Wizard implements IImportWizard {
 
 	@Override
 	public boolean performFinish() {
-		EcoSpold2Import pi = createImport();
+		EcoSpold2Import_rap pi = createImport();
 		if (pi == null)
 			return false;
 		try {
@@ -59,12 +60,12 @@ public class EcoSpold2ImportWizard extends Wizard implements IImportWizard {
 		}
 	}
 
-	private EcoSpold2Import createImport() {
-		File[] files = importPage.getFiles();
+	private EcoSpold2Import_rap createImport() {
+		String[] files = importPage.getFiles();
 		IDatabase database = Database.get();
 		if (files == null || files.length == 0 || database == null)
 			return null;
-		EcoSpold2Import pi = new EcoSpold2Import(database);
+		EcoSpold2Import_rap pi = new EcoSpold2Import_rap(database);
 		pi.setFiles(files);
 		if (App.runsInDevMode()) {
 			ImportConfig conf = new ImportConfig();

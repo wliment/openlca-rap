@@ -39,7 +39,7 @@ public class JsonImportWizard extends Wizard implements IImportWizard {
 
 	@Override
 	public boolean performFinish() {
-		File zip = getZip();
+		String zip = getZip();
 		if (zip == null)
 			return false;
 		try {
@@ -55,18 +55,18 @@ public class JsonImportWizard extends Wizard implements IImportWizard {
 		}
 	}
 
-	private File getZip() {
-		File[] files = page.getFiles();
+	private String getZip() {
+		String [] files = page.getFiles();
 		if (files == null || files.length == 0)
 			return null;
-		File file = files[0];
-		if (file == null || !file.exists())
+		String file = files[0];
+		if (file == null )
 			return null;
 		else
 			return file;
 	}
 
-	private void doRun(File zip) throws Exception {
+	private void doRun(String zip) throws Exception {
 		getContainer().run(true, true, (monitor) -> {
 			monitor.beginTask(Messages.Import, IProgressMonitor.UNKNOWN);
 			try (ZipStore store = ZipStore.open(zip)) {

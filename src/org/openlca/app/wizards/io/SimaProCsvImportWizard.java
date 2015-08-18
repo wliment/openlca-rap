@@ -15,6 +15,7 @@ import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.core.database.IDatabase;
 import org.openlca.io.simapro.csv.input.SimaProCsvImport;
+import org.openlca.io.simapro.csv.input.SimaProCsvImport_rap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,11 +37,11 @@ public class SimaProCsvImportWizard extends Wizard implements IImportWizard {
 
 	@Override
 	public boolean performFinish() {
-		File[] files = importPage.getFiles();
+		String [] files = importPage.getFiles();
 		IDatabase database = Database.get();
 		if (files == null || files.length == 0 || database == null)
 			return false;
-		final SimaProCsvImport importer = new SimaProCsvImport(database,
+		final SimaProCsvImport_rap importer = new SimaProCsvImport_rap(database,
 				files[0]);
 		try {
 			getContainer().run(true, true, new IRunnableWithProgress() {

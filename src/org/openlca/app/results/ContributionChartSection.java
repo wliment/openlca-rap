@@ -91,7 +91,7 @@ public class ContributionChartSection {
 
 	private void createFlowViewer(Composite header) {
 		FlowViewer viewer = new FlowViewer(header, Cache.getEntityCache());
-		Set<FlowDescriptor> set = provider.getFlowDescriptors();
+		Set<FlowDescriptor> set =	 provider.getFlowDescriptors();
 		FlowDescriptor[] flows = set.toArray(new FlowDescriptor[set.size()]);
 		viewer.setInput(flows);
 		viewer.addSelectionChangedListener((selection) -> refresh());

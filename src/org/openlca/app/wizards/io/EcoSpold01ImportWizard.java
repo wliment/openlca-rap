@@ -15,10 +15,12 @@ import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.core.model.Category;
 import org.openlca.io.EcoSpoldUnitFetch;
+import org.openlca.io.EcoSpoldUnitFetch_rap;
 import org.openlca.io.UnitMapping;
 import org.openlca.io.UnitMappingEntry;
 import org.openlca.io.UnitMappingSync;
 import org.openlca.io.ecospold1.input.EcoSpold01Import;
+import org.openlca.io.ecospold1.input.EcoSpold01Import_rap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,9 +43,9 @@ public class EcoSpold01ImportWizard extends Wizard implements IImportWizard {
 
 		mappingPage = new UnitMappingPage() {
 			@Override
-			protected String[] checkFiles(File[] files) {
+			protected String[] checkFiles(String [] files) {
 				String[] unitNames;
-				EcoSpoldUnitFetch unitChecker = new EcoSpoldUnitFetch();
+				EcoSpoldUnitFetch_rap unitChecker = new EcoSpoldUnitFetch_rap();
 				try {
 					unitNames = unitChecker.getUnits(files);
 				} catch (Exception e) {
@@ -54,7 +56,7 @@ public class EcoSpold01ImportWizard extends Wizard implements IImportWizard {
 			}
 
 			@Override
-			protected File[] getFiles() {
+			protected String[] getFiles() {
 				return EcoSpold01ImportWizard.this.getFiles();
 			}
 
@@ -62,7 +64,7 @@ public class EcoSpold01ImportWizard extends Wizard implements IImportWizard {
 		addPage(mappingPage);
 	}
 
-	public File[] getFiles() {
+	public String [] getFiles() {
 		return importPage.getFiles();
 	}
 
@@ -77,7 +79,7 @@ public class EcoSpold01ImportWizard extends Wizard implements IImportWizard {
 	public boolean performFinish() {
 		try {
 			getContainer().run(true, true, (monitor) -> {
-				File[] files = importPage.getFiles();
+				String [] files = importPage.getFiles();
 				List<UnitMappingEntry> mappings = mappingPage
 						.getUnitMappings();
 				UnitMapping mapping = new UnitMappingSync(Database.get())
@@ -94,11 +96,11 @@ public class EcoSpold01ImportWizard extends Wizard implements IImportWizard {
 		}
 	}
 
-	private void parse(IProgressMonitor monitor, File[] files,
+	private void parse(IProgressMonitor monitor, String [] files,
 			UnitMapping unitMapping) {
 		monitor.beginTask(Messages.ImportEcoSpold01DataSets,
 				IProgressMonitor.UNKNOWN);
-		EcoSpold01Import importer = new EcoSpold01Import(Database.get(),
+		EcoSpold01Import_rap importer = new EcoSpold01Import_rap(Database.get(),
 				unitMapping);
 		importer.setProcessCategory(category);
 		importer.setFiles(files);

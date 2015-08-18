@@ -26,41 +26,46 @@ public class ImageExportAction extends Action {
 	private Composite composite;
 
 	public ImageExportAction(Composite composite) {
-		setId("ImageExportAction#composite");
-		setToolTipText(Messages.SaveAsImage);
-		setImageDescriptor(ImageType.SAVE_AS_IMAGE_ICON.getDescriptor());
-		this.composite = composite;
+//		setId("ImageExportAction#composite");
+//		setToolTipText(Messages.SaveAsImage);
+//		setImageDescriptor(ImageType.SAVE_AS_IMAGE_ICON.getDescriptor());
+//		this.composite = composite;
 	}
 
 	@Override
 	public void run() {
-		if (composite == null)
-			return;
-
-		log.trace("Take image snapshot");
-		Point size = composite.getSize();
-		Image image = new Image(composite.getDisplay(), size.x, size.y);
-		GC gc = new GC(composite);
-//		gc.copyArea(image, 0, 0);
-
-		try {
-			writeToFile(image);
-		} catch (Exception e) {
-			log.error("Failed to save export image", e);
-		} finally {
-			gc.dispose();
-			image.dispose();
-		}
+		
+		
+		//rap not support gc draw composite  2015-08-18 10:34:04 wliment
+//		if (composite == null)
+//			return;
+//
+//		log.trace("Take image snapshot");
+//		Point size = composite.getSize();
+//	
+//		Image image = new Image(composite.getDisplay(), size.x, size.y);
+//		GC gc = new GC(composite);
+////		gc.copyArea(image, 0, 0);
+//
+//		try {
+//			writeToFile(image);
+//		} catch (Exception e) {
+//			log.error("Failed to save export image", e);
+//		} finally {
+//			gc.dispose();
+//			image.dispose();
+//		}
 	}
 
 	private void writeToFile(Image image) {
-		File file = FileChooser.forExport(".png", "openlca_chart.png");
-		if (file == null)
-			return;
-		log.trace("Export image to {}", file);
-		ImageLoader loader = new ImageLoader();
-		loader.data = new ImageData[] { image.getImageData() };
-		loader.save(file.getAbsolutePath(), SWT.IMAGE_PNG);
+//		File file = FileChooser.forExport(".png", "openlca_chart.png");
+//		if (file == null)
+//			return;
+//		File file =new File("/tmp/test123456.png");
+//		log.trace("Export image to {}", file);
+//		ImageLoader loader = new ImageLoader();
+//		loader.data = new ImageData[] { image.getImageData() };
+//		loader.save(file.getAbsolutePath(), SWT.IMAGE_PNG);
 	}
 
 }

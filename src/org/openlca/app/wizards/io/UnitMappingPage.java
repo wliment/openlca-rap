@@ -60,7 +60,7 @@ public abstract class UnitMappingPage extends WizardPage {
 	/**
 	 * To check if something has changed (used by getControl())
 	 */
-	private File[] lastFiles = new File[0];
+	private String [] lastFiles = new String [0];
 
 	private TableViewer tableViewer;
 	private List<UnitMappingEntry> mappings = new ArrayList<>();
@@ -86,7 +86,7 @@ public abstract class UnitMappingPage extends WizardPage {
 	}
 
 	private void update() {
-		final File[] files = getFiles();
+		final String [] files = getFiles();
 		if (!filesChanged(files))
 			return;
 		try {
@@ -113,7 +113,7 @@ public abstract class UnitMappingPage extends WizardPage {
 		}
 	}
 
-	private boolean filesChanged(File[] newFiles) {
+	private boolean filesChanged(String [] newFiles) {
 		if (newFiles.length != lastFiles.length)
 			return true;
 		else {
@@ -148,7 +148,7 @@ public abstract class UnitMappingPage extends WizardPage {
 	 *            - the files to be checked
 	 * @return String[] - the names of the units, found in the files
 	 */
-	protected abstract String[] checkFiles(File[] files);
+	protected abstract String[] checkFiles(String [] files);
 
 	/**
 	 * Get the files selected previously. (Normally the wizard should provide
@@ -156,7 +156,7 @@ public abstract class UnitMappingPage extends WizardPage {
 	 * 
 	 * @return File[] - a list of files
 	 */
-	protected abstract File[] getFiles();
+	protected abstract String [] getFiles();
 
 	@Override
 	public void createControl(final Composite parent) {

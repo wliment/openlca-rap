@@ -38,7 +38,7 @@ public class FileImportPage extends WizardPage {
 
 	private TreeViewer directoryViewer;
 	private HashSet<String> fileExtensions = new HashSet<>();
-	private File[] selectedFiles;
+	private String [] selectedFiles;
 	private TableViewer fileViewer;
 	private boolean multiSelection;
 
@@ -91,10 +91,10 @@ public class FileImportPage extends WizardPage {
 		chooseDirectoryComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
 				true, false));
 
-		new Label(chooseDirectoryComposite, SWT.NONE)
-				.setText(Messages.FromDirectory);
+//		new Label(chooseDirectoryComposite, SWT.NONE)
+//				.setText("choose file");
 
-		createDirectoryText(chooseDirectoryComposite);
+//		createDirectoryText(chooseDirectoryComposite);
 
 		// create button to open directory dialog
 		final Button chooseDirectoryButton = new Button(
@@ -107,7 +107,7 @@ public class FileImportPage extends WizardPage {
 
 		// create composite
 		final Composite chooseFileComposite = new Composite(body, SWT.NONE);
-		final GridLayout fileLayout = new GridLayout(2, true);
+		final GridLayout fileLayout = new GridLayout(1, true);
 		fileLayout.marginLeft = 0;
 		fileLayout.marginRight = 0;
 		fileLayout.marginBottom = 0;
@@ -120,8 +120,8 @@ public class FileImportPage extends WizardPage {
 				true, true));
 
 		// create tree viewer for selecting a sub directory
-		directoryViewer = new TreeViewer(chooseFileComposite, SWT.BORDER
-				| SWT.SINGLE);
+//		directoryViewer = new TreeViewer(chooseFileComposite, SWT.BORDER
+//				| SWT.SINGLE);
 //		final GridData gddv = new GridData(SWT.FILL, SWT.FILL, true, true);
 //		directoryViewer.getTree().setLayoutData(gddv);
 //		directoryViewer.setContentProvider(new DirectoryContentProvider());
@@ -141,8 +141,8 @@ public class FileImportPage extends WizardPage {
 		final GridData gdfv = new GridData(SWT.FILL, SWT.FILL, true, true);
 		fileViewer.getTable().setLayoutData(gdfv);
 		fileViewer.setContentProvider(new FileContentProvider());
-		fileViewer.setLabelProvider(new FileLabelProvider());
-
+		fileViewer.setLabelProvider(new StringLableProvider());
+//		fileViewer.setInput(input);
 		fileViewer.addSelectionChangedListener((event) -> {
 			ISelection selection = event.getSelection();
 			if (!(selection instanceof IStructuredSelection)
@@ -151,20 +151,21 @@ public class FileImportPage extends WizardPage {
 				return;
 			}
 			Object[] files = ((IStructuredSelection) selection).toArray();
-			selectedFiles = new File[files.length];
+			selectedFiles = new String[files.length];
 			for (int i = 0; i < files.length; i++) {
-				selectedFiles[i] = (File) files[i];
+				selectedFiles[i] = (String) files[i];
 			}
 			setPageComplete(true);
 		});
-
+		
+		
 		setViewerInput();
 		setControl(body);
 	}
 
 	private void setViewerInput() {
-		// we need to set the input when the components are already painted to
-		// avoid SWT sizing problems
+//		 we need to set the input when the components are already painted to
+//		 avoid SWT sizing problems
 //		fileViewer.getTable().addPaintListener(new PaintListener() {
 //			@Override
 //			public void paintControl(PaintEvent e) {
@@ -188,7 +189,7 @@ public class FileImportPage extends WizardPage {
 	}
 
 	/** Get the selected files from the page. */
-	public File[] getFiles() {
+	public String[] getFiles() {
 		return selectedFiles;
 	}
 
@@ -274,30 +275,34 @@ public class FileImportPage extends WizardPage {
 
 		@Override
 		public Object[] getElements(final Object inputElement) {
-			final ArrayList<File> elements = new ArrayList<>();
-			if (inputElement instanceof File) {
-				final File file = (File) inputElement;
-				if (file.isDirectory()) {
-					final File[] files = file.listFiles();
-					if (files != null) {
-						for (final File child : files) {
-							if (child.isFile()) {
-								String extension = child.getName();
-								while (extension.contains(".")) {
-									extension = extension.substring(extension
-											.indexOf('.') + 1);
-								}
-								extension = extension.toLowerCase();
-								if (fileExtensions.size() == 0
-										|| fileExtensions.contains(extension)) {
-									elements.add(child);
-								}
-							}
-						}
-					}
-				}
+			final ArrayList<String> elements = new ArrayList<>();
+			String file = (String)inputElement;
+			if (inputElement instanceof String) {
+				
+				elements.add(file);
+
 			}
-			return elements.toArray(new File[elements.size()]);
+//				if (true) {
+//					final File[] files = file.listFiles();
+//					if (files != null) {
+//						for (final File child : files) {
+//							if (child.isFile()) {
+//								String extension = child.getName();
+//								while (extension.contains(".")) {
+//									extension = extension.substring(extension
+//											.indexOf('.') + 1);
+//								}
+//								extension = extension.toLowerCase();
+//								if (fileExtensions.size() == 0
+//										|| fileExtensions.contains(extension)) {
+//									elements.add(child);
+//								}
+//							}
+//						}
+//					}
+//				}
+//			}
+			return elements.toArray(new String[elements.size()]);
 		}
 
 		@Override
@@ -317,8 +322,11 @@ public class FileImportPage extends WizardPage {
 		public void widgetSelected(final SelectionEvent e) {
 //			InputDialog dialog = new InputDialog(UI.shell(), "choose file ", "choose file ", "", null);
 			FileDialog dialog  = new FileDialog(UI.shell());
+		
 			dialog.open();
 			System.out.println(dialog.getFileName());
+		
+
 			fileViewer.setInput(dialog.getFileNames()[0]);
 //			directoryText.setText(dialog.getValue());
 

@@ -15,6 +15,7 @@ import org.openlca.app.db.Database;
 import org.openlca.app.navigation.Navigator;
 import org.openlca.app.rcp.ImageType;
 import org.openlca.io.xls.process.input.ExcelImport;
+import org.openlca.io.xls.process.input.ExcelImport_rap;
 
 public class ExcelImportWizard extends Wizard implements IImportWizard {
 
@@ -36,7 +37,7 @@ public class ExcelImportWizard extends Wizard implements IImportWizard {
 
 	@Override
 	public boolean performFinish() {
-		File[] files = importPage.getFiles();
+		String [] files = importPage.getFiles();
 		if (files == null)
 			return false;
 		try {
@@ -50,15 +51,15 @@ public class ExcelImportWizard extends Wizard implements IImportWizard {
 		}
 	}
 
-	private void doRun(final File[] files) throws Exception {
+	private void doRun(final String[] files) throws Exception {
 		getContainer().run(true, true, new IRunnableWithProgress() {
 			@Override
 			public void run(IProgressMonitor monitor)
 					throws InvocationTargetException, InterruptedException {
 				monitor.beginTask(Messages.Import, files.length);
-				for (File file : files) {
-					monitor.subTask(file.getName());
-					ExcelImport importer = new ExcelImport(file, Database.get());
+				for (String file : files) {
+					monitor.subTask(file);
+					ExcelImport_rap importer = new ExcelImport_rap(file, Database.get());
 					importer.run();
 					monitor.worked(1);
 				}
