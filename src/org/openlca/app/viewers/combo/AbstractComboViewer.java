@@ -23,7 +23,7 @@ public abstract class AbstractComboViewer<T> extends
 	@Override
 	protected TableComboViewer createViewer(Composite parent) {
 		TableCombo combo = new TableCombo(parent, SWT.READ_ONLY | SWT.BORDER);
-//		UI.gridData(combo, true, false).widthHint = 350;
+//		UI.gridData(combo, true, false).= 350;
 		if (useColumnHeaders()) {
 			if (useColumnBounds())
 				combo.defineColumns(getColumnHeaders(), getColumnBounds());
@@ -35,7 +35,11 @@ public abstract class AbstractComboViewer<T> extends
 		combo.setDisplayColumnIndex(getDisplayColumn());
 		TableComboViewer viewer = new TableComboViewer(combo);
 		viewer.setContentProvider(ArrayContentProvider.getInstance());
-//		viewer.setLabelProvider(getLabelProvider());
+		viewer.setLabelProvider(getLabelProvider());
+	
+//		viewer.setLabelProvider(null);
+
+		
 		viewer.setSorter(getSorter());
 		return viewer;
 	}

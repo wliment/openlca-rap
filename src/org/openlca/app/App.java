@@ -74,7 +74,8 @@ public class App {
 		String val = CommandArgument.DEV_MODE.getValue();
 		if (val == null)
 			return false;
-		return val.equals("true");
+//		return val.equals("true");
+		return false;
 	}
 
 	public static EventBus getEventBus() {

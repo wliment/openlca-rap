@@ -467,6 +467,7 @@ public class TableCombo extends Composite {
 				if (focusControl == arrow || focusControl == table) return;
 				if (isDropped()) {
 					table.setFocus();
+				
 				} else {
 					text.setFocus();
 				}	      
@@ -497,7 +498,7 @@ public class TableCombo extends Composite {
 		}
 		else {
 			TableItem[] tableItems = table.getItems();
-			
+
 			GC gc = new GC (text);
 			int spacer = gc.stringExtent (" ").x; //$NON-NLS-1$
 			int maxTextWidth = gc.stringExtent (text.getText()).x;
@@ -550,6 +551,7 @@ public class TableCombo extends Composite {
 	public void copy () {
 		checkWidget ();
 //		text.copy ();
+		
 	}
 	
 	/**

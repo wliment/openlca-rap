@@ -105,13 +105,13 @@ public class RcpActionBarAdvisor extends ActionBarAdvisor {
 		MenuManager viewMenu = new MenuManager(Messages.Showviews);
 		viewMenu.add(showViews);
 		windowMenu.add(viewMenu);
-		createDeveloperMenu(windowMenu);
-		windowMenu.add(new FormulaConsoleAction());
-		if (MozillaConfigView.canShow()) {
-			windowMenu.add(Actions.create(Messages.BrowserConfiguration,
-					ImageType.FIREFOX_ICON.getDescriptor(),
-					MozillaConfigView::open));
-		}
+//		createDeveloperMenu(windowMenu);
+////		windowMenu.add(new FormulaConsoleAction());
+//		if (MozillaConfigView.canShow()) {
+//			windowMenu.add(Actions.create(Messages.BrowserConfiguration,
+//					ImageType.FIREFOX_ICON.getDescriptor(),
+//					MozillaConfigView::open));
+//		}
 		menuBar.add(windowMenu);
 	}
 

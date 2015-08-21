@@ -321,7 +321,7 @@ public class FileImportPage extends WizardPage {
 		@Override
 		public void widgetSelected(final SelectionEvent e) {
 //			InputDialog dialog = new InputDialog(UI.shell(), "choose file ", "choose file ", "", null);
-			FileDialog dialog  = new FileDialog(UI.shell());
+			FileDialog dialog  = new FileDialog(UI.shell(),SWT.TITLE | SWT.MULTI );
 		
 			dialog.open();
 			System.out.println(dialog.getFileName());
