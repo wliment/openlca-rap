@@ -34,7 +34,7 @@ public class RcpApplication implements IApplication {
 	
 	public void stop() {
 //		final IWorkbench workbench = PlatformUI.getWorkbench();
-//		if (workbench == null) {
+//		if (workbench == null) { 
 //			return;
 //		}
 //		final Display display = workbench.getDisplay();

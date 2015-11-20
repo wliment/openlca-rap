@@ -37,6 +37,15 @@
             id="perspectives.standard">
       </perspective>
    </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="login_Prespective"
+            class="org.openlca.app.rcp.LoginPerspective"
+            id="perspectives.login">
+      </perspective>
+   </extension>
 	<extension
          point="org.eclipse.ui.editors">
          
@@ -388,6 +397,13 @@
          </property>
       </product>
    </extension>
+   <extension point="org.eclipse.ui.views">
+        <view id="views.login"
+             name="Label View"
+          class="org.openlca.app.rcp.LoginView"
+     />
+</extension>
+   
    <extension
          point="org.eclipse.ui.navigator.viewer">
       <viewer
