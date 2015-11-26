@@ -17,6 +17,8 @@ public class RcpWorkbenchAdvisor extends WorkbenchAdvisor {
 	 * The ID of the openLCA perspective
 	 */
 	private static final String PERSPECTIVE_ID = "perspectives.standard";
+//	private static final String PERSPECTIVE_ID = "perspectives.login";
+
 
 	@Override
 	public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(

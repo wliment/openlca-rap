@@ -11,6 +11,7 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IPerspectiveDescriptor;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
@@ -49,6 +50,8 @@ public class RcpWindowAdvisor extends WorkbenchWindowAdvisor {
 //		configurer.setTitle(Config.APPLICATION_NAME + " " + Config.VERSION);
 		configurer.setShellStyle( SWT.NO_TRIM );
 //		   getWindowConfigurer().setShowMenuBar( false );
+//		 IViewPart viewPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView( LoginView.id );
+//		    viewPart.setFocus();
 	}
 
 	@Override
@@ -64,16 +67,16 @@ public class RcpWindowAdvisor extends WorkbenchWindowAdvisor {
 	}
   	  	else{
 		   
-		// close opened perspective
+//		 close opened perspective
 		    IPerspectiveDescriptor pers = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getPerspective();
 		    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(pers, false, false);
 
 		    // open login perspective
 		    pers = PlatformUI.getWorkbench().getPerspectiveRegistry().findPerspectiveWithId("perspectives.login");
 		    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().setPerspective(pers);
-
+		    
 		    Shell shell2 = getWindowConfigurer().getWindow().getShell();
-		    //getWindowConfigurer().setInitialSize(new Point(400, 300));
+//		    getWindowConfigurer().setInitialSize(new Point(400, 300));
 //		    getWindowConfigurer().setShowCoolBar(false);
 		    getWindowConfigurer().setShowStatusLine(false);
 		    getWindowConfigurer().setShowPerspectiveBar(false);
@@ -81,10 +84,16 @@ public class RcpWindowAdvisor extends WorkbenchWindowAdvisor {
 		    getWindowConfigurer().setShowMenuBar(false);
 
 		    shell2.setFullScreen(true);
-
+//
 		    shell2.setMaximized( true );
+		    
+		    System.out.println("sdfsfsd");
+		    LoginView l = (LoginView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+		    	    .findView(LoginView.id);
+//		    
+		    l.setFocus();
   	  	}
-//		    hideCoolbar();
+
 		    
 		   
 	}
@@ -106,13 +115,18 @@ public class RcpWindowAdvisor extends WorkbenchWindowAdvisor {
 	public boolean preWindowShellClose() {
 		log.trace("close all editors");
 		Editors.closeAll();
-		
+		IPerspectiveDescriptor pers = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getPerspective();
+	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(pers, false, false);
 
 //		configurer.getWindow().getWorkbench().close();
 //
 //		configurer.getWindow().close();
 
-		
+	    Shell shell2 = getWindowConfigurer().getWindow().getShell();
+	    shell2.setFullScreen(false);
+	    //
+	    		    shell2.setMaximized( false );
+	    
 
 		return super.preWindowShellClose();
 	}
