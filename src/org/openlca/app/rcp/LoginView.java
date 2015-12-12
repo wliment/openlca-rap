@@ -4,6 +4,7 @@ import javax.swing.event.HyperlinkEvent;
 
 import org.eclipse.jface.window.Window;
 import org.eclipse.rap.rwt.RWT;
+import org.eclipse.rap.rwt.client.service.StartupParameters;
 import org.eclipse.rap.rwt.widgets.DialogCallback;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
@@ -51,22 +52,42 @@ public class LoginView extends ViewPart{
 	      if (getUsername() != null){
 	    	  HttpSession session = RWT.getUISession().getHttpSession();
 	    	  session.setAttribute("login", "maomi");
+	    	  StartupParameters service = RWT.getClient().getService( StartupParameters.class );
+	    	  String index = service.getParameter( "index" );
 //	    		  loadApplicationPerspective();
 //	    	  showMessageDialogInfo(parent.getShell());
-	  	    linkDialog ld= new linkDialog(parent.getShell(), "Welcome to openLCA Web Version", message);
-	  	    ld.open();
-	  	    parent.getShell().setSize(1000,400);
+	    	  if( !"true".equals(index)){
+	    		  	linkDialog ld= new linkDialog(parent.getShell(), "Welcome to openLCA Web Version", message);
+	  	    		ld.open();
+	  	    		parent.getShell().setSize(1000,400);
 
-
+	    	  }
 	    		  }
 	        return result;
 	      }
 	    };
 //	    loginDialog.setUsername( "john" );
-	    loginDialog.setBlockOnOpen(false);
+	    HttpSession session = RWT.getUISession().getHttpSession();
+	    
+	    StartupParameters service = RWT.getClient().getService( StartupParameters.class );
+  	  String index = service.getParameter( "index" );
+  	  if ( session.getAttribute("login") != null && !"true".equals(index)){
+		    Shell shell2 = this.windowConfigurer.getWindow().getShell();
 
-	    loginDialog.open();
+		    shell2.setFullScreen(true);
+//
+		    shell2.setMaximized( true );
+	  		linkDialog ld= new linkDialog(parent.getShell(), "Welcome to openLCA Web Version", message);
+	  	    ld.open();
+	  	}
+  	  else if ( session.getAttribute("login") != null && "true".equals(index)){
+		  loadApplicationPerspective();
 
+	  	}
+	  	else{
+	  		loginDialog.setBlockOnOpen(false);
+	    	loginDialog.open();
+	  	}
         System.out.println("111111111111zzz");
 
 	    loginDialog.setFocus();

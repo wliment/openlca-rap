@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.eclipse.rap.rwt.RWT;
 import org.eclipse.rap.rwt.SingletonUtil;
+import org.eclipse.rap.rwt.client.service.StartupParameters;
 import org.eclipse.rap.rwt.service.UISessionEvent;
 import org.eclipse.rap.rwt.service.UISessionListener;
 import org.eclipse.swt.SWT;
@@ -52,12 +53,15 @@ public class RcpWindowAdvisor extends WorkbenchWindowAdvisor {
 //		   getWindowConfigurer().setShowMenuBar( false );
 //		 IViewPart viewPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView( LoginView.id );
 //		    viewPart.setFocus();
+	   
 	}
 
 	@Override
 	public void postWindowOpen() {
+		StartupParameters service = RWT.getClient().getService( StartupParameters.class );
+	  	  String index = service.getParameter( "index" );
   	  HttpSession session = RWT.getUISession().getHttpSession();
-  	  	if (session.getAttribute("login") != null){
+  	  	if ("true".equals(index) && session.getAttribute("login") != null){
 			if (Config.isBrowserEnabled())
 				StartPage.open();
 			   Shell shell = getWindowConfigurer().getWindow().getShell();
